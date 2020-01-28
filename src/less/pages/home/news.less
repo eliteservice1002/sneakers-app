@@ -1,0 +1,200 @@
+// 1866px
+
+.news{
+    padding-bottom: 80px;
+    width: 100%;
+   
+    
+    color: #fff;
+
+    background: #030A17;
+    font-weight: 900;
+    font-size: 36px;
+    
+    .news_inner{
+        display: flex;
+        align-items: flex-end;
+        position: relative;
+        width: 100%;
+
+        
+
+
+            
+            .adv_of_boosts{
+                
+                background: url("/dist/imgs/imgsForNews/Banner.png") center no-repeat ;
+                .size(3);
+                .size-xl(12);
+                
+                height: 782px;
+                // position: absolute;
+                // bottom: 0;
+                // right: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                
+                
+                
+
+
+                img{
+                    position: absolute;
+                    transform:rotate(180deg);
+                    width: 476px;
+                    right: -102px;
+                    z-index: 0;
+                    bottom: -255px;
+                }
+
+                 
+
+                .bg_title{
+                    
+                    font-weight: 300;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    z-index: 1;
+                    font-size: 110px;
+                    writing-mode: tb-rl;
+                    transform:rotate(180deg);
+                    width: 360px;
+                    height: 430px;
+
+                    .first_block_of_title{
+                        
+                        .first{
+                            z-index: 1;
+                        }
+                       display: flex;
+                       justify-content: space-between;
+                       
+
+                       
+                    }
+                    .second_block_of_title{
+                       z-index: 10;
+                       display: flex;
+                       justify-content: space-between;
+                    }
+                    
+                    
+                    
+
+                    .bg_mine_title{
+                        
+                        position: absolute;
+                        font-size: 40px;
+                        left: 16px;
+                        bottom: 40%;
+                    }
+
+                    .btn_to_boost{
+                        width: 60px;
+                        height: 60px;
+                        background: #E71C4C;
+                        border-radius: 30px;
+                        position: absolute;
+                        z-index: 1;
+                        
+                        bottom: calc(100%/3.5);
+                        
+                        left: calc(100%/1.6);
+
+                        .img{
+                            transform:rotate(180deg);
+                            width: 100%;
+                            height: 100%;
+                            background: url("/dist/imgs/imgsForNews/Group 2.png") no-repeat center;
+                        }
+                        
+                        
+                    }
+                }
+            }
+
+
+            @media screen and (max-width:@Largedesktop){
+                .adv_of_boosts{
+                       transform:rotate(90deg);
+                       height: 700px;
+                     
+                      
+                       
+                   }
+               }
+            
+        
+        
+    }
+    @media screen and (max-width:@computerW) {
+        .news_inner{
+            align-items: center;
+        }
+     }
+     
+
+    
+    .content{
+        
+        display: flex;
+        flex-direction: column;
+        
+        
+        .title{
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 457px;
+            height: 50px;
+            margin-top: 45px;
+            margin-bottom: 25px;
+            
+           .title_content{
+            position: absolute;
+            right: 0;
+            font-weight: 300;
+            font-size: 36px;
+           }
+            
+            .line{
+                
+                position: absolute;
+                background: #fff;
+                height: 5px;
+                width: 167px;
+                
+            }
+        }
+        
+        
+
+    }
+    
+}
+
+
+@media screen and (max-width:@Largedesktop){
+    .adv_of_boosts{
+        transform:rotate(90deg);
+        height: 0;
+    }
+
+    .news_inner{
+        flex-direction: column;
+    }
+    .news{
+        padding-bottom: 0;
+    }
+}
+
+
+
+
+
+
+

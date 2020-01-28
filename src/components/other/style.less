@@ -1,0 +1,73 @@
+
+.common_title_wrapper{
+    height: 100px;
+    display: flex;
+    align-items: center;
+
+    .homeLink{
+        width: 90px;
+        height: 90px;
+        img{
+            height: 90px;
+            width: 90px;
+        }
+    }
+    
+    .right_nav{
+        right: 0;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1  ;
+        background: url("/dist/imgs/imgsForHomeUsage/Menu-Cart.png") no-repeat center;
+        width: 360px;
+        height: 108px;
+
+        .right_nav_inner{
+            margin-left: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            
+
+            
+            .search_icon{
+                height: 27px;
+    
+            }
+            .person_icon{
+                z-index: -1;
+                height: 40px;
+    
+            }
+        }
+
+        
+    }
+}
+
+    .common__title{
+        
+        display: flex;
+        
+        align-items: center;
+        
+        height: 50px;
+        // margin-top: 34px;
+        
+        font-weight: 300;
+        font-size: 1.8rem;
+        margin-left: 45px;
+        
+    }
+    
+    .common__title::before{
+        content: "";
+        height: 5px;
+        width: 120px;
+        background: #000;
+        margin-right: -2px;
+    }
+
+    

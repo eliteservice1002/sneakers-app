@@ -1,0 +1,56 @@
+@black:#051026;
+@mainFont:"OpenSans", sans-serif;
+
+@computerLW :1800px;
+@computerW :1600px;
+@Largedesktop:1200px;
+@desktops:992px;
+@tablet:768px;
+@phones:576px ;
+
+
+
+//colors
+@grey:#959595;
+@secondGrey:#707070;
+@white: #FAFAFA;
+@whiteGrey:#EEECEC;
+@red:#E71C4C;
+
+// mixin
+
+@colums:12;
+
+@offset:30px;
+
+.size(@n){ 
+    width: calc(100%/@colums * @n -@offset);
+}
+
+.size-xxl(@n){ // 1600
+        @media screen and (max-width:@computerW){
+            .size(@n)
+    }
+}
+.size-xl(@n){ // 1200
+        @media screen and (max-width:@Largedesktop){
+            .size(@n)
+    }
+}
+.size-lg(@n){ //992
+        @media screen and (max-width:@desktops){
+            .size(@n)
+    }
+}
+.size-md(@n){ //768
+        @media screen and (max-width:@tablets){
+            .size(@n)
+    }
+}
+
+.size-xs(@n){ // 576
+        @media screen and (max-width:@phones){
+            .size(@n)
+    }
+}
+
