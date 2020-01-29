@@ -11,7 +11,8 @@ import Cart from '~p/cart';
 
 // other
 import rightMenuBg from "./imgs/menu.png"
-import logo from "./imgs/logo.png"
+import logo from "./imgs/Logo.png"
+
 
 
 
