@@ -1,4 +1,5 @@
 let path = require('path');
+// var HtmlWebpackPlugin = require('html-webpack-plugin');
 let MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 let conf = {
@@ -8,11 +9,13 @@ let conf = {
         filename: 'main.js',
         publicPath: 'dist/'
     },
+    
     plugins: [
+        // new HtmlWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: 'styles.css',
-
         }),
+       
     ],
     module: {
         rules: [
@@ -132,12 +135,42 @@ let conf = {
             }, 
             
             {
-                test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader',
-                options: {
-                    outputPath: 'images/',
-                    name: '[name].[ext]',
-                }
+                test: /\.(png|jpg|gif)$/,
+                use:[
+                    {
+                        loader: 'file-loader',
+                        options: {
+                        outputPath: 'assets/',
+                        name: '[name].[ext]',
+                        }
+                    },
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                          mozjpeg: {
+                            progressive: true,
+                            quality: 65
+                          },
+                          // optipng.enabled: false will disable optipng
+                          optipng: {
+                            enabled: false,
+                          },
+                          pngquant: {
+                            quality: [0.20, 0.30],
+                            speed: 4
+                          },
+                          gifsicle: {
+                            interlaced: false,
+                          },
+                          // the webp option will enable WEBP
+                          webp: {
+                            quality: 75
+                          }
+                        }
+                      },
+                    
+                ]
+                
             },
             {
                 test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,

@@ -10,10 +10,9 @@ import ProductsList from '~p/productsList';
 import Cart from '~p/cart';
 
 // other
-import ProductCart from "~c/other/productCart/productCart.js";
-// import Title from "~c/other/header/header.js"
+import rightMenuBg from "./imgs/menu.png"
+import logo from "./imgs/logo.png"
 
-import Brandslider from "~c/sliders/brand_slider.js";
 
 
 
@@ -88,11 +87,11 @@ import Brandslider from "~c/sliders/brand_slider.js";
         <div className="container">
             <div ref={this.nav} className="common_title_wrapper">
                 <div className="leftside_inner">
-                    <Link to={routesMap.home} className="homeLink"><img src='./../../../dist/images/Logo.png' alt=""/></Link>
+                    <Link to={routesMap.home} className="homeLink"><img src={logo} alt=""/></Link>
                     <div className="common__title"> FIND YOUR BEST AIR </div>
                 </div>
                 <div className="right_nav">
-                    {/* <img src="/dist/imgs/imgsForHomeUsage/Menu-Cart.png" alt=""/> */}
+                    <img className="menu_bg" src={rightMenuBg} alt=""/>
                     <div className="right_nav_inner">
                         <NavLink to={`${routesMap.products}/cart`}> <img className="search_icon" src="/dist/imgs/imgsForHomeUsage/avatar.png" alt=""/></NavLink>
                         <NavLink to={`${routesMap.products}/cart`}><img className="search_icon" src="/dist/imgs/imgsForHomeUsage/icons8-search-64.png" alt=""/></NavLink>

@@ -9,7 +9,10 @@ import Slider from "react-slick";
 
 import "./brands.less"
 
-
+import adidas from "./imgs/adidas.png";
+import newbalance from "./imgs/New_balance.png";
+import nike from "./imgs/nike.png";
+import LE_COQ_SPORTIF from "./imgs/LE_COQ_SPORTIF.png";
 
 
 @inject('stores') @observer class CustomSlide extends Component {

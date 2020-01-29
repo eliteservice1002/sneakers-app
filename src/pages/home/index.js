@@ -7,7 +7,7 @@ import {observer, inject} from 'mobx-react';
 // sliders
 import SliderHome from '~c/sliders/home_slider.js';
 import SliderPopular from '~c/sliders/popular_slider.js';
-import SliderBrand from '~c/sliders/brand_slider.js';
+import SliderBrand from '~c/sliders/brandslider';
 import SliderReviews from '~c/sliders/reviews_slider.js';
 
 

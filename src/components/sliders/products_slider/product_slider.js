@@ -106,7 +106,9 @@ class CustomSlide extends Component {
 
   let dots = imgsArr.map( (img,id)=>{
       return(
-        <img key={id} src={img} alt="" className="dot"  onClick={()=>this.slider.slickGoTo(id)}/>
+        <div className="dot_inner">
+          <img key={id} src={img} alt="" className="dot"  onClick={()=>this.slider.slickGoTo(id)}/>
+        </div>
       );
   })
 
