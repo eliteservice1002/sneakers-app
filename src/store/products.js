@@ -89,7 +89,11 @@ export default class{
 
     
 
-
+// @computed get forSliderProductData(){
+//     return this.items.map((pr)=>{
+//         if(pr.id)
+//     })
+// }
 
     
     
@@ -142,6 +146,7 @@ function getProducts(){
             srcOfAddImg:[
                 "https://via.placeholder.com/736x480.png",
                 "https://via.placeholder.com/736x480.png",
+                
             ],
             price: 120,
             rest: 10

@@ -35,7 +35,7 @@ import $ from 'jquery'
         
             this.state = {
                 scrollTop: 0,
-                navMargin:0,
+                
                 lastScrollTop:0,
             }
         
@@ -106,8 +106,8 @@ import $ from 'jquery'
                                     
 
                                     <div className="nav_items" >
-                                        <NavLink  activeClassName="selected" exact to={routesMap.products}>Products</NavLink>
-                                        <NavLink  activeClassName="selected" exact to={routesMap.cart}>cart</NavLink>
+                                        <NavLink  activeClassName="selected" exact to="/products/list">Products</NavLink>
+                                        <NavLink  activeClassName="selected" exact to={`${routesMap.products}/cart`}>cart</NavLink>
                                         <NavLink  activeClassName="selected" exact to={routesMap.todolist}>toDoList</NavLink>
                                         <a   >Men</a>
                                         <a >Women</a>
@@ -118,10 +118,10 @@ import $ from 'jquery'
                             </div>
                             <div className="right_nav">
                                 <div className="right_nav_inner">
-                                    <NavLink  activeClassName="selected" exact to={routesMap.cart}><img className="search_icon" src="/dist/imgs/imgsForHomeUsage/avatar.png" alt=""/></NavLink>
-                                    <NavLink  activeClassName="selected" exact to={routesMap.cart}><img className="search_icon" src="/dist/imgs/imgsForHomeUsage/icons8-search-64.png" alt=""/></NavLink>
-                                    <NavLink  activeClassName="selected" exact to={routesMap.cart}><img className="search_icon" src="/dist/imgs/imgsForHomeUsage/icons8-heart-52.png" alt=""/></NavLink>
-                                    <NavLink  activeClassName="selected" exact to={routesMap.cart}><img className="search_icon" src="/dist/imgs/imgsForHomeUsage/icons8-shopping-cart-128.png" alt=""/></NavLink>
+                                    <NavLink  activeClassName="selected" exact to={`${routesMap.products}/cart`}><img className="search_icon" src="/dist/imgs/imgsForHomeUsage/avatar.png" alt=""/></NavLink>
+                                    <NavLink  activeClassName="selected" exact to={`${routesMap.products}/cart`}><img className="search_icon" src="/dist/imgs/imgsForHomeUsage/icons8-search-64.png" alt=""/></NavLink>
+                                    <NavLink  activeClassName="selected" exact to={`${routesMap.products}/cart`}><img className="search_icon" src="/dist/imgs/imgsForHomeUsage/icons8-heart-52.png" alt=""/></NavLink>
+                                    <NavLink  activeClassName="selected" exact to={`${routesMap.products}/cart`}><img className="search_icon" src="/dist/imgs/imgsForHomeUsage/icons8-shopping-cart-128.png" alt=""/></NavLink>
                                     
                                     
                                 </div>

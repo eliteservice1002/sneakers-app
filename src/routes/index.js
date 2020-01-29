@@ -1,14 +1,13 @@
 import Home from '~p/home';
 import Page404 from '~p/error404';
-import Cart from '~p/cart';
 import Product from '~p/product';
 import Products from '~p/products';
 import Todolist from '~p/todolistmobx/todolist.js';
 
-import Test from '~p/todolist/components/childs/test.js';
-import TestInner from '~p/todolist/components/childs/testInner.js';
+import Test from '~p/todolistmobx/components/childs/test.js';
+import TestInner from '~p/todolistmobx/components/childs/testInner.js';
 
-// import ProductsList from '~p/productsList';
+import ProductsList from '~p/productsList';
 
 // import BlogNews from '~c/cmdFiles/block_of_news.js';
 
@@ -20,50 +19,36 @@ let routes = [,
         component: Home,
         exact: true
     },
-    {
-        name: 'cart',
-        url: '/cart',
-        component: Cart,
-        exact: true
-    },
+    
     {
         name: 'products',
         url: '/products',
         component: Products,
-        exact: true
+        exact: false,
+        // nestedRoute:[
+        //     {
+        //         name: 'product',
+        //         url: '/products/:url',
+        //         component: Product,
+        //         exact: true
+        //     },
+        //     {
+        //         name: 'productsList',
+        //         url: '/products/productsList',
+        //         component: ProductsList,
+        //         exact: true
+        //     },
+        // ],
     },
-    {
-        name: 'product',
-        url: '/product/:url',
-        component: Product,
-        exact: true
-    },
+    
     {
         name: 'todolist',
         url: '/todolist',
         component: Todolist,
         exact: false,
-        routes:[
-            {
-                name:"test",
-                url:"/todolist/test",
-                component:Test,
-            },
-            {
-                name:"testinet",
-                url:"/todolist/testList",
-                component:TestInner,
 
-            },
-        ]
-        
     },
-    // {
-    //     name: 'todolist',
-    //     url: '/todolist/:url',
-    //     component: Todolist,
-    //     exact: true,
-    // },
+    
     
     {
         url: '**',
@@ -73,7 +58,18 @@ let routes = [,
 
 let routesMap = {};
 
+// let nestedMap = {};
 
+
+// routes.forEach( (ro) =>{
+//     if(ro.hasOwnProperty("nestedRoute")){
+//         ro.nestedRoute.forEach((nestedRo) =>{
+//             nestedMap[nestedRo.name] = nestedRo.url;
+//         } )
+//     }else{
+//         return null;
+//     }
+// })
 
 
 routes.forEach((route) => {
@@ -87,8 +83,6 @@ let urlBuilder = function(name, params){
     if(!routesMap.hasOwnProperty(name)){
         return null;
     }
-
-    
 
     let url = routesMap[name]; // news/:id
 

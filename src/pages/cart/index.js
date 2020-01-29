@@ -6,7 +6,6 @@ import {observer, inject} from 'mobx-react';
 import './style.less';
 
 import {Col,Row,Container} from 'react-bootstrap';
-import Title from "~c/other/commonTitle.js"
 
 
 
@@ -17,7 +16,7 @@ import Title from "~c/other/commonTitle.js"
         return (
             <div className="cart">
                 <div className="container">
-                    <Title titleName={"FIND YOUR BEST AIR"}/>
+                    
                     
                 </div>
             </div>

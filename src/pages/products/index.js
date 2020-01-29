@@ -1,14 +1,17 @@
 import React from 'react';
 import { routesMap , urlBuilder } from '~/routes';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, Switch,Route } from 'react-router-dom';
 import {observer, inject} from 'mobx-react';
 
-
 import './style.less';
+// routes 
+import Product from '~p/product';
+import ProductsList from '~p/productsList';
+import Cart from '~p/cart';
 
-
-import Title from "~c/other/commonTitle.js";
-import ProductCart from "~c/other2/productCart/productCart.js";
+// other
+import ProductCart from "~c/other/productCart/productCart.js";
+// import Title from "~c/other/header/header.js"
 
 import Brandslider from "~c/sliders/brand_slider.js";
 
@@ -16,79 +19,99 @@ import Brandslider from "~c/sliders/brand_slider.js";
 
 
 
-@inject('stores') @observer class Products extends React.Component{
+
+
+@inject('stores') @observer class Header extends React.Component{
 
     constructor(props) {
         super(props);
+        this.nav = React.createRef();
         
-        
-        
+            this.state = {
+                scrollTop: 0,
+                
+                lastScrollTop:0,
+            }
         
       }
 
-    
-    handleClick(){
-        return e.target.clientWidth;
+      componentDidMount(){
+        window.addEventListener('scroll', this.handleScroll);
+           
+        
     }
 
+    componentWillUnmount(){
+        window.removeEventListener('scroll', this.handleScroll);
+    }
+
+    handleScroll = () => {
+        
+        let nav = this.nav.current;
+        
+        
+
+        let st = this.state.scrollTop;
+        
+
+        if(st > this.state.lastScrollTop ){
+            
+            // down
+            nav.classList.add("scrollDown")
+            nav.classList.remove("scrollUp")
+
+    }else if(st < this.state.lastScrollTop && st !==0){  
+            // up
+            nav.classList.add("scrollUp")
+            nav.classList.remove("scrollDown")
+
+    }
     
+        this.state.lastScrollTop = st;
+
+
+
+        
+        this.setState({
+            scrollTop:window.scrollY
+        });
+
+       
+    }
     
 
-    
     render(){
-        let productsCart = this.props.stores.products.items;
-        let pruductsList = productsCart.map( (product,id) =>{
-
-             
-
-            
-                return(
-                    <ProductCart 
-                    
-                    key={product.id}
-                    brand={product.brand}
-                    model={product.model}
-                    price={product.price}
-                    id={product.id}
-                    srcOfImg={product.srcOfImg}
-                    gender={product.gender}
-                    country={product.country}
-                    yearOfModel={product.yearOfModel}
-                      />
-                    
-                    );
-            
-                
-                    
-                
-                    
-            
-            
-        })
-        return (
-            <div className="product_list">
-                <div className="container">
-                    <Title titleName="FIND YOUR BEST TRAINERS"/>
-                    <div className="col-5 filter__bar">
-                        <div className="filter_cat1"><i className="fas fa-filter"></i>Filters </div>
-                        <div className="filter_cat"><i className="fas fa-ellipsis-v"></i>For everyone</div>
-                        <div className="filter_cat"><i className="fas fa-ellipsis-v"></i>Brand</div>
-                        <div className="filter_cat"><i className="fas fa-ellipsis-v"></i>Size</div>
-                        <div className="filter_cat"><i className="fas fa-ellipsis-v"></i>Color</div>
+        
+        
+        return(
+       
+        <div className="container">
+            <div ref={this.nav} className="common_title_wrapper">
+                <div className="leftside_inner">
+                    <Link to={routesMap.home} className="homeLink"><img src='./../../../dist/images/Logo.png' alt=""/></Link>
+                    <div className="common__title"> FIND YOUR BEST AIR </div>
+                </div>
+                <div className="right_nav">
+                    {/* <img src="/dist/imgs/imgsForHomeUsage/Menu-Cart.png" alt=""/> */}
+                    <div className="right_nav_inner">
+                        <NavLink to={`${routesMap.products}/cart`}> <img className="search_icon" src="/dist/imgs/imgsForHomeUsage/avatar.png" alt=""/></NavLink>
+                        <NavLink to={`${routesMap.products}/cart`}><img className="search_icon" src="/dist/imgs/imgsForHomeUsage/icons8-search-64.png" alt=""/></NavLink>
+                        <NavLink to={`${routesMap.products}/cart`}><img className="search_icon" src="/dist/imgs/imgsForHomeUsage/icons8-heart-52.png" alt=""/></NavLink>
+                        <NavLink to={`${routesMap.products}/cart`}><img className="search_icon" src="/dist/imgs/imgsForHomeUsage/icons8-shopping-cart-128.png" alt=""/></NavLink>
                     </div>
-
-                        
-                    <div className="  products__inner">
-                            {pruductsList}
-                    <div className="btn">Load More</div>
-                    </div>
-                <Brandslider />
-                
                 </div>
             </div>
-            
+                <Switch>
+                    <Route exact={true} path="/products/list" component={ProductsList}/>
+                    <Route exact={true} path="/products/cart" component={Cart}/>
+                    <Route exact={true} path="/products/:url" component={Product}/>
+                </Switch>
+
+        </div>
         );
     }
+        
+        
 }
 
-export default Products;
+export default Header;

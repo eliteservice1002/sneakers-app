@@ -1,17 +1,17 @@
 
 
 
-import {observer, inject} from 'mobx-react';
+
 import React, { Component } from "react";
 import Slider from "react-slick";
 import { object } from 'prop-types';
-import { keys } from 'mobx';
+import { Link, NavLink } from 'react-router-dom';
 
 import "./style.less";
 
 
 
-@inject('stores') @observer class CustomSlide extends Component {
+class CustomSlide extends Component {
 
   
 
@@ -22,56 +22,45 @@ import "./style.less";
   
 
   render() {
-    
-    
 
+        return (
+          
+            <div   className=" product_block" >
+              <img  src={this.props.imgs} alt=""/>
+            
+            </div>
+          
+        );
     
-    if(this.props.idOfProduct >= 1){
-      return (
-        
-      <div  className=" product_block" >
-        <img   className="col-xl-11" src={this.props.addimg} alt=""/>
-
-      </div>
-      );
-    }else{
-      return (
-        <div   className=" product_block" >
-          <img  src={this.props.img} alt=""/>
-  
-        </div>
-      );
-    }
   }
 }
 
 
 
-@inject('stores') @observer class SimpleSlider extends Component {
-  
+ class SimpleSlider extends Component {
+
+  state = {
+    slideIndex: 0,
+  };
   
 
   
 
   
-
-  // componentDidUpdate(){
-  //   document.querySelector(".slick-slide.slick-active.slick-current");
-  // }
 
   render() {
     
     
     
-    // let = this.props.stores.product.item
-
+    
+    
     
     
 
     const settings = {
       
-      dots: true,
-      // infinite: true,
+      dots: false,
+      infinite: false,
       speed: 500,
       slidesToScroll: 1,
       // autoplay: true,
@@ -79,43 +68,47 @@ import "./style.less";
       // centerMode:true,
      
       
-      // appendDots: dots => (
-      //   null
-      // ),
-      
-      customPaging: (i) => (
-        
-        <div className="dot" >
-          
-        </div>
+      appendDots: dots => (
+      <div className="dots">{dots}</div>
       ),
-      beforeChange: i =>{
-        // this.priceTag.current.classList.add("dotExit");
-        //console.log(i);
-        // if(i !== 3){
-        //   this.priceTag.current.classList.remove("dotExit");
-          
-        // }else{
-        //   this.priceTag.current.classList.add("dotExit");
-        // }
-        // console.log(this.priceTag.current);
-        
-      },
+      beforeChange: (current, next) => this.setState({ slideIndex: next }),
+    
      
       
 
-      arrows:false
+      arrows:false,
+      
     };
 
-    let srcOfAddImg = this.props.srcOfAddImg;
-
-    let slides = srcOfAddImg.map( (img,id) =>{
-      return(
-        <CustomSlide img ={this.props.img} key={id} addimg={img} idOfProduct={id} />
-      );
-    })
+    let slides;
+    let imgsArr =  this.props.srcOfAddImg;
+    imgsArr.unshift(this.props.img);
 
     
+    
+    if(imgsArr.length >3){
+      imgsArr.shift(this.props.img);
+      slides = imgsArr.map( (img) =>{
+        return(
+          <CustomSlide imgs = {img} key={img}   />
+        );
+      })
+
+    }else{
+      slides = imgsArr.map( (img) =>{
+        return(
+          <CustomSlide imgs = {img} key={img}   />
+        );
+      })
+    }
+    
+
+
+  let dots = imgsArr.map( (img,id)=>{
+      return(
+        <img key={id} src={img} alt="" className="dot"  onClick={()=>this.slider.slickGoTo(id)}/>
+      );
+  })
 
     
     
@@ -124,12 +117,15 @@ import "./style.less";
     return (
       <div className="home_inner">
                                 
-      <Slider {...settings} >
+      <Slider ref={slider => (this.slider = slider)} {...settings} >
         {slides}
 
           
         
       </Slider>
+        <div className="dots">
+            {dots}  
+        </div>
       </div>
     );
   }

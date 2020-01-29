@@ -42,7 +42,7 @@ import { routesMap , urlBuilder } from '~/routes';
           <div className="title"><span>{productsPathInStore.brand}</span> <br/>{productsPathInStore.model}</div>
           
             <div className="img_inner">
-                  <Link  to={urlBuilder('product',{url:productsPathInStore.id})} >
+                  <Link  to={urlBuilder('products',{url:productsPathInStore.id})} >
                     <img  src={productsPathInStore.srcOfImg}  alt=""/>
                   </Link>
                 <div className="price_inner">

@@ -10,35 +10,42 @@ import grey from "./imgs/grey.png";
 import brightBlue from "./imgs/blue.png";
 
 
-import Title from "~c/other/commonTitle.js"
+
 import ProductSlider from "~c/sliders/products_slider/product_slider.js"
+import Error404 from "~c/errors/404"
 
 
 
 
 @inject('stores') @observer class Product extends React.Component{
 
-    // 
+    
 
     render(){
         let productStore = this.props.stores.products;
         let id = this.props.match.params.url;
 
-        console.log(this.props.location.pathname)
+        
         
         let product = productStore.getById(id);
+
+        
+        
+        if(product == null || product.id.toString() !== id ){
+            return <Error404/>
+        }
         return (
             <div className="product">
                 <div className="container ">
-                    <Title titleName="FIND YOUR BEST AIR"/>
+                    
                     <div className="item_inner">
                         {/*  */}
                         <div className="row">
-                            <div className="col-xl-9">
-                                <ProductSlider srcOfAddImg={product.srcOfAddImg} img={product.srcOfImg}/>
+                            <div className="col-9 col-xl-9">
+                                <ProductSlider srcOfAddImg={product.srcOfAddImg} img={product.srcOfImg} id={id}/>
                             </div>
 
-                            <div className="col-xl-3">
+                            <div className="col-3 col-xl-3">
                                 <div className="product__order">
                                     
                                     <div className="price">{product.price+"$"}</div>    

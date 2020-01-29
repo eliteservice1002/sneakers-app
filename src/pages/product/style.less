@@ -1,5 +1,8 @@
 @import "../../less/vars/var.less";
 .product{
+    height: 100vh;
+    display: flex;
+    align-items: center;
     .product_block{
         display: flex;
         justify-content: center;
@@ -70,4 +73,78 @@
     
     
 }
+
+
+.common_title_wrapper{
+    width: 100%;
+    z-index: 5;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
+
+    .leftside_inner{
+        display: flex;
+        align-items: center;
+    }
+    
+    .right_nav{
+       
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // z-index:1 ;
+        background: url("/dist/imgs/imgsForHomeUsage/Menu-Cart.png") no-repeat center;
+        width: 360px;
+        height: 108px;
+
+        .right_nav_inner{
+            // margin-left: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            
+
+            
+            .search_icon{
+                height: 27px;
+    
+            }
+            .person_icon{
+                z-index: -1;
+                height: 40px;
+    
+            }
+        }
+
+        
+    }
+}
+
+    .common__title{
+        
+        display: flex;
+        
+        align-items: center;
+        
+        height: 50px;
+        
+        
+        font-weight: 300;
+        font-size: 1.8rem;
+        margin-left: 45px;
+        
+    }
+    
+    .common__title::before{
+        content: "";
+        height: 5px;
+        width: 120px;
+        background: #000;
+        margin-right: -2px;
+    }
+
+    
+
 

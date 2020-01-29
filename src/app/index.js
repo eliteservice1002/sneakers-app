@@ -53,11 +53,11 @@ class App extends React.Component{
                     <div >
                         
                                 
-                                    <Route >
+                                    {/* <Route > */}
                                         <Switch> 
                                             {routesComponents}
                                         </Switch>
-                                    </Route>
+                                    {/* </Route> */}
 
                                     {/* <div className="cont">
                                     
