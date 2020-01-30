@@ -1,6 +1,7 @@
 
 
-
+import "slick-carousel/slick/slick.less"; 
+import "slick-carousel/slick/slick-theme.less";
 
 import React, { Component } from "react";
 import Slider from "react-slick";
@@ -106,7 +107,9 @@ class CustomSlide extends Component {
 
   let dots = imgsArr.map( (img,id)=>{
       return(
-        <img key={id} src={img} alt="" className="dot"  onClick={()=>this.slider.slickGoTo(id)}/>
+        <div key={id} className="dot_inner">
+          <img  src={img} alt=""   onClick={()=>this.slider.slickGoTo(id)}/>
+        </div>
       );
   })
 

@@ -6,7 +6,7 @@ import {observer, inject} from 'mobx-react';
 
 import './style.less';
 
-import Brandslider from "~c/sliders/brand_slider.js";
+import Brandslider from "~c/sliders/brand_slider";
 
 
 

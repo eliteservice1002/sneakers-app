@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import SliderMain from "react-slick";
 
-
+import "slick-carousel/slick/slick.less"; 
+import "slick-carousel/slick/slick-theme.less";
 
 import {observer, inject} from 'mobx-react';
 
@@ -43,10 +44,10 @@ import {observer, inject} from 'mobx-react';
 
   
 
-  @inject('stores') @observer class SlickGoTo extends React.Component {
-  state = { 
+class SlickGoTo extends React.Component {
+
+  state = {
     slideIndex: 0,
-    
   };
 
   render() {
@@ -58,8 +59,9 @@ import {observer, inject} from 'mobx-react';
       slidesToShow: 3   ,
       slidesToScroll: 1,
       arrows:false,
-      
       beforeChange: (current, next) => this.setState({ slideIndex: next }),
+      
+      
       
       responsive: [
         {
@@ -70,7 +72,7 @@ import {observer, inject} from 'mobx-react';
             autoplay: true,
             autoplaySpeed: 3000,
             infinite: true,
-            dots: true
+            
           }
         },
         {
@@ -79,7 +81,7 @@ import {observer, inject} from 'mobx-react';
             slidesToShow: 2,
             slidesToScroll: 1,
             infinite: true,
-            dots: true
+            
           }
         },
         {
@@ -115,15 +117,13 @@ import {observer, inject} from 'mobx-react';
           
           
         </SliderMain>
-        <input 
-          
-          onChange={e => this.slider.slickGoTo(e.target.value)}
-          value={this.state.slideIndex}
-          type="range"
-          min={0}
-          max={6}
-        />
-
+        <div className="popular_arrows">
+          <div className="arrow-left1" onClick={()=>this.slider.slickGoTo(this.state.slideIndex - 1)}><i className="fas fa-arrow-left fa-2x" ></i></div>
+          <div className="arrow-left1" onClick={()=>this.slider.slickGoTo(this.state.slideIndex + 1)}><i className="fas fa-arrow-right fa-2x" ></i></div>
+        
+        </div>
+        
+        
       
       </div>   
     );

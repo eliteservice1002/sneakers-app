@@ -61,6 +61,7 @@ export default class{
     
     constructor(rootStore){
         this.rootStore = rootStore;
+        console.log(rootStore.cart)
     }
 
     @computed get productsMap(){
@@ -74,7 +75,10 @@ export default class{
         
         return map;
         
+        
     }
+
+    
 
     @action  typeOfProducts(type){
 
@@ -87,17 +91,12 @@ export default class{
 
     }
 
-    
+    @action selectColor(c,id){
+         let i = this.productsMap[id];
+         let pr = this.items[i]
 
-// @computed get forSliderProductData(){
-//     return this.items.map((pr)=>{
-//         if(pr.id)
-//     })
-// }
-
-    
-    
-    
+        
+    }
 
     getById(id){
         let index = this.productsMap[id];
@@ -128,7 +127,7 @@ function getProducts(){
                 red:true,
                 blue:true,
                 white:true,
-                dark_blue:true
+                dark_blue:false
             },
             availableSize:{
                 "36":true,
