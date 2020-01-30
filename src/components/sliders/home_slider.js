@@ -80,7 +80,7 @@ import { routesMap , urlBuilder } from '~/routes';
 
     const settings = {
       
-      dots: false,
+      dots: true,
       infinite: true,
       speed: 500,
       slidesToScroll: 1,

@@ -14,14 +14,6 @@ import "./style.less";
 
 class CustomSlide extends Component {
 
-  
-
-  
-
-
-  
-  
-
   render() {
 
         return (
@@ -118,6 +110,7 @@ class CustomSlide extends Component {
     
     
     return (
+      <>
       <div className="home_inner">
                                 
       <Slider ref={slider => (this.slider = slider)} {...settings} >
@@ -126,10 +119,12 @@ class CustomSlide extends Component {
           
         
       </Slider>
-        <div className="dots">
-            {dots}  
-        </div>
+        
       </div>
+      <div className="dots_pr">
+          {dots}
+        </div>
+      </>
     );
   }
 }

@@ -2,6 +2,12 @@ import {observable, computed, action} from 'mobx';
 
 export default class{
     
+    constructor(rootStore){
+        this.rootStore = rootStore;
+        
+    } 
+
+    
 
     @observable brands = [
         {
@@ -59,10 +65,8 @@ export default class{
     
     
     
-    constructor(rootStore){
-        this.rootStore = rootStore;
-        console.log(rootStore.cart)
-    }
+    
+
 
     @computed get productsMap(){
         let map = {};
@@ -91,12 +95,20 @@ export default class{
 
     }
 
-    @action selectColor(c,id){
+    @observable productState = {
+        id:"", 
+        color:"",
+        choosenSize:"",
+        region:""
+    }
+
+    @action selectColor(color,id){
          let i = this.productsMap[id];
          let pr = this.items[i]
-
-        
+         this.productState.color = color;
     }
+
+    
 
     getById(id){
         let index = this.productsMap[id];
