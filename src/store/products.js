@@ -2,6 +2,12 @@ import {observable, computed, action} from 'mobx';
 
 export default class{
     
+    constructor(rootStore){
+        this.rootStore = rootStore;
+        
+    } 
+
+    
 
     @observable brands = [
         {
@@ -59,9 +65,8 @@ export default class{
     
     
     
-    constructor(rootStore){
-        this.rootStore = rootStore;
-    }
+    
+
 
     @computed get productsMap(){
         let map = {};
@@ -74,7 +79,10 @@ export default class{
         
         return map;
         
+        
     }
+
+    
 
     @action  typeOfProducts(type){
 
@@ -87,16 +95,19 @@ export default class{
 
     }
 
-    
+    @observable productState = {
+        id:"", 
+        color:"",
+        choosenSize:"",
+        region:""
+    }
 
-// @computed get forSliderProductData(){
-//     return this.items.map((pr)=>{
-//         if(pr.id)
-//     })
-// }
+    @action selectColor(color,id){
+         let i = this.productsMap[id];
+         let pr = this.items[i]
+         this.productState.color = color;
+    }
 
-    
-    
     
 
     getById(id){
@@ -128,7 +139,7 @@ function getProducts(){
                 red:true,
                 blue:true,
                 white:true,
-                dark_blue:true
+                dark_blue:false
             },
             availableSize:{
                 "36":true,

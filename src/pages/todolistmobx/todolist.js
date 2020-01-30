@@ -9,6 +9,8 @@ import {Card,Button,Nav} from 'react-bootstrap'
 
 import Note from './components/note.js'
 import { flow } from 'mobx';
+
+import logo from "./eefwfw.png"
     
 
 
@@ -49,6 +51,8 @@ import { flow } from 'mobx';
             <div className="value">{todostore.data}</div>
 
             {notes}
+
+            <img src={logo} alt=""/>
             
 
         </>

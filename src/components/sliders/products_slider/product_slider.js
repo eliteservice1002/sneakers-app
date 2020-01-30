@@ -1,6 +1,7 @@
 
 
-
+import "slick-carousel/slick/slick.less"; 
+import "slick-carousel/slick/slick-theme.less";
 
 import React, { Component } from "react";
 import Slider from "react-slick";
@@ -12,14 +13,6 @@ import "./style.less";
 
 
 class CustomSlide extends Component {
-
-  
-
-  
-
-
-  
-  
 
   render() {
 
@@ -106,8 +99,13 @@ class CustomSlide extends Component {
 
   let dots = imgsArr.map( (img,id)=>{
       return(
+<<<<<<< HEAD
         <div className="dot_inner">
           <img key={id} src={img} alt="" className="dot"  onClick={()=>this.slider.slickGoTo(id)}/>
+=======
+        <div key={id} className="dot_inner">
+          <img  src={img} alt=""   onClick={()=>this.slider.slickGoTo(id)}/>
+>>>>>>> productPage
         </div>
       );
   })
@@ -117,6 +115,7 @@ class CustomSlide extends Component {
     
     
     return (
+      <>
       <div className="home_inner">
                                 
       <Slider ref={slider => (this.slider = slider)} {...settings} >
@@ -125,10 +124,12 @@ class CustomSlide extends Component {
           
         
       </Slider>
-        <div className="dots">
-            {dots}  
-        </div>
+        
       </div>
+      <div className="dots_pr">
+          {dots}
+        </div>
+      </>
     );
   }
 }

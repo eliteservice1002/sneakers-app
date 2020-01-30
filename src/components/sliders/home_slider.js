@@ -13,20 +13,10 @@ import { routesMap , urlBuilder } from '~/routes';
 
 @inject('stores') @observer class CustomSlide extends Component {
 
-  constructor(props) {
-    super(props);
-    
-    
-        this.state = {
-            opacityFlag:true,
-        }
-    
-  }
-
-  handleClick = (e)=>{
-    // e.preventDefault();
-    e
-  }
+  state = {
+    slideIndex: 0,
+  };
+  
   
 
   render() {
@@ -115,18 +105,7 @@ import { routesMap , urlBuilder } from '~/routes';
             <img src={path + (i+1) +".png"} alt=""/>
         </div>
       ),
-      beforeChange: i =>{
-        // this.priceTag.current.classList.add("dotExit");
-        //console.log(i);
-        // if(i !== 3){
-        //   this.priceTag.current.classList.remove("dotExit");
-          
-        // }else{
-        //   this.priceTag.current.classList.add("dotExit");
-        // }
-        // console.log(this.priceTag.current);
-        
-      },
+     
      
       
 
@@ -138,8 +117,8 @@ import { routesMap , urlBuilder } from '~/routes';
     return (
       <div className="home_inner">
                                 
-      <Slider {...settings} >
-          <CustomSlide onClick={()=>console.log(1)} idOfProduct={0} />
+      <Slider  {...settings} >
+          <CustomSlide  idOfProduct={0} />
           <CustomSlide idOfProduct={1} />
           <CustomSlide idOfProduct={2} />
           <CustomSlide idOfProduct={3} />
@@ -147,6 +126,7 @@ import { routesMap , urlBuilder } from '~/routes';
           
         
       </Slider>
+      
       </div>
     );
   }

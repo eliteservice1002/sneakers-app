@@ -10,10 +10,20 @@ import ProductsList from '~p/productsList';
 import Cart from '~p/cart';
 
 // other
+<<<<<<< HEAD
 import rightMenuBg from "./imgs/menu.png"
 import logo from "./imgs/Logo.png"
 
 
+=======
+
+// import Title from "~c/other/header/header.js"
+
+
+
+import logo from "./assets/Logo.png";
+
+>>>>>>> productPage
 
 
 
@@ -34,6 +44,8 @@ import logo from "./imgs/Logo.png"
             }
         
       }
+
+    
 
       componentDidMount(){
         window.addEventListener('scroll', this.handleScroll);
@@ -81,6 +93,8 @@ import logo from "./imgs/Logo.png"
     
 
     render(){
+        
+
         
         
         return(
