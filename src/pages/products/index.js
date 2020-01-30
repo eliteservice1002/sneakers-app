@@ -38,6 +38,8 @@ import logo from "./assets/Logo.png";
         
       }
 
+    
+
       componentDidMount(){
         window.addEventListener('scroll', this.handleScroll);
            
@@ -84,6 +86,8 @@ import logo from "./assets/Logo.png";
     
 
     render(){
+        
+
         
         
         return(

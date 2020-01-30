@@ -1,0 +1,130 @@
+
+@import "./../../../less/vars/var.less";
+
+
+.popular_brands{
+    
+    padding-top: 50px;
+    padding-bottom: 90px;
+    width: 100%;
+    
+    
+
+    .inner_brands{
+        display: flex;
+        flex-direction: column;
+
+        .title{
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 410px;
+            height: 50px;
+            margin-top: 45px;
+            margin-bottom: 25px;
+            
+           .title_content{
+            position: absolute;
+            right: 0;
+            font-weight: 300;
+            font-size: 2rem;
+           }
+            
+            .line{
+                
+                position: absolute;
+                background: #000;
+                height: 5px;
+                width: 120px;
+                
+            }
+        }
+        
+        .block_of_brand{
+            .size(12);
+            min-width: 300px;
+            height: 390px;
+            background: #fff;
+            border-radius: 10px;
+            position: relative;
+            color:@grey;
+
+            img{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate3d(-50%, -50%, 0);
+            }
+
+            .brand_name{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                font-size: 1.2rem;
+                transform:rotate(180deg);
+                writing-mode: tb-rl;
+                margin-bottom: 18px;
+                margin-right: 10px;
+                font-weight: 300;
+                color:@secondGrey ;
+            }
+        }
+
+        .dots{
+            margin-top: 30px;
+            display: flex;
+
+
+            li{
+                
+                margin-right: 15px;
+                width: 60px;
+                border-radius: 10px;
+                height: 7px;
+                background: @black;
+                background: #fff;       
+                
+                .div{
+                    opacity: 0;
+                }
+            }
+            li.slick-active{
+                
+                    background: @black;
+                
+            }
+        }
+    }
+}
+
+.home{
+    .popular_brands{
+        .block_of_brand{
+            background: #fff;
+        }
+    }
+}
+
+.product_list{
+    .popular_brands{
+        .block_of_brand{
+            background: @black;
+        }
+    }
+}
+
+.fa-arrow-righ
+.fa-arrow-left{
+    height: 50px;
+    width: 100px;
+    color: #05172C;
+}
+
+
+.popular_arrows{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+

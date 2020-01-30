@@ -1,19 +1,14 @@
-
 let path = require('path');
-let HtmlWebpackPlugin = require('html-webpack-plugin');
 let MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-
 let conf = {
-    entry: './src/main.js', 
+    entry: './src/main.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
-        // publicPath: 'dist'
+        filename: 'main.js',
+        publicPath: '/dist/'
     },
-    
     plugins: [
-        new HtmlWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: 'styles.css',
         }),
@@ -110,7 +105,7 @@ let conf = {
                           gifsicle: {
                             interlaced: false,
                           },
-                          // the webp option will enable WEBP
+                          
                           webp: {
                             quality: 75
                           }

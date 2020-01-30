@@ -27,7 +27,7 @@ import Error404 from "~c/errors/404"
         let productStore = this.props.stores.products;
         let id = this.props.match.params.url;
 
-        console.log(red)
+       
         
         let product = productStore.getById(id);
 
@@ -35,7 +35,7 @@ import Error404 from "~c/errors/404"
         let colors = product.availableColors;
 
 
-
+        
         
 
        
@@ -43,7 +43,7 @@ import Error404 from "~c/errors/404"
         let colorsBtns = Object.keys(colors).map( (c,id)=>{
             
                 return <img key={id}  
-                className={colors[c] == true ? "color": "disabled" } src={`dist/images/${c}.png`}
+                className={colors[c] == true ? "color": "disabled" } src={`/dist/images/${c}.png`}
                 onClick={() => productStore.selectColor("red",id)}
                  alt=""   />
         });
@@ -79,7 +79,7 @@ import Error404 from "~c/errors/404"
                                             <div className="title">Choose your favourite color</div>
                                             <div className="colors">
                                                 {colorsBtns}
-                                                 {/* <img src={red} alt=""  onClick={() => productStore.selectColor("red",id)} className="color"/> */}
+                                                 {/* <img src={white} alt=""  onClick={() => productStore.selectColor("red",id)} className="color"/> */}
                                                 
                                             </div>
                                         </div>
