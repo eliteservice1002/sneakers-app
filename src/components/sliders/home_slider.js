@@ -13,9 +13,7 @@ import { routesMap , urlBuilder } from '~/routes';
 
 @inject('stores') @observer class CustomSlide extends Component {
 
-  state = {
-    slideIndex: 0,
-  };
+ 
   
   
 
@@ -24,22 +22,22 @@ import { routesMap , urlBuilder } from '~/routes';
 
     let productsPathInStore = this.props.stores.products.items[idOfProduct];
 
-    
+    // console.log(productsPathInStore.id)
     return (
       
-        <div {...props}   className="block" style={{display:"flex"}}>
+        <div {...props}   className="block " style={{display:"flex"}}>
           
           <div className="title"><span>{productsPathInStore.brand}</span> <br/>{productsPathInStore.model}</div>
           
             <div className="img_inner">
-                  <Link  to={urlBuilder('products',{url:productsPathInStore.id})} >
-                    <img  src={productsPathInStore.srcOfImg}  alt=""/>
-                  </Link>
+                  {/* <Link  to={'products/' + productsPathInStore.id} > */}
+                    <img className=" col-xl-12 col-9 col-md-10" src={productsPathInStore.srcOfImg}  alt=""/>
+                  {/* </Link> */}
                 <div className="price_inner">
-                <div className="price" >
-                <div className="price_img" >{productsPathInStore.price}$</div>
-                </div>
-                <div className="cart" ></div>
+                  <div className="price" >
+                  <div className="price_img" >{productsPathInStore.price}$</div>
+                  </div>
+                  <div className="cart" ></div>
               </div>
             </div>
            
@@ -52,63 +50,36 @@ import { routesMap , urlBuilder } from '~/routes';
 
 
 
-@inject('stores') @observer class SimpleSlider extends Component {
+ class SimpleSlider extends Component {
   
-  
+  constructor(props){
+    super(props);
+      this.state =  {
+        slideIndex: 0,
+      }
+    
+
+ }
 
   
 
   
 
-  // componentDidUpdate(){
-  //   document.querySelector(".slick-slide.slick-active.slick-current");
-  // }
+  
 
   render() {
-    
-    let  path = "../dist/imgs/imgsForMainSlider/sneakers0";
-    
-    let namesOfBrands = [
-      "Nike","Adidas","New Balance","Nike"
-    ]
-    let namesOfSneakers = [
-      "AIR270","Y-3-Kai.."," X 90"," M2K Te.."
-    ]
-
-    
-    
 
     const settings = {
       
-      dots: true,
-      infinite: true,
+     
+      infinite: false,
       speed: 500,
       slidesToScroll: 1,
       // autoplay: true,
       // autoplaySpeed: 3000,
       // centerMode:true,
      
-      
-      appendDots: dots => (
-        <div >
-          <ul className="dots" > {dots} </ul>
-        </div>
-      ),
-      
-      customPaging: (i) => (
-        
-        <div className="dot" >
-          <div className="title" >{namesOfBrands[i]+","}
-          <br/>
-          <span>{namesOfSneakers[i]}</span>
-        </div>
-            <img src={path + (i+1) +".png"} alt=""/>
-        </div>
-      ),
-     
-     
-      
-
+  
       arrows:false
     };
 
@@ -117,7 +88,7 @@ import { routesMap , urlBuilder } from '~/routes';
     return (
       <div className="home_inner">
                                 
-      <Slider  {...settings} >
+      <Slider ref={slider => (this.slider = slider)}  {...settings} >
           <CustomSlide  idOfProduct={0} />
           <CustomSlide idOfProduct={1} />
           <CustomSlide idOfProduct={2} />

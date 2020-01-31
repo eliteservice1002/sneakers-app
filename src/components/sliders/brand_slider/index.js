@@ -21,14 +21,10 @@ import "./brands.less"
     let brandsPathInStore = this.props.stores.products.brands[idOfBrand];
 
     
-
-
-   
-    
     return (
-      <div className="bloks_inner">
+      <div className="bloks_inner col-12">
         <div className="block_of_brand">
-          <img src={brandsPathInStore.urlOfImfg} alt=""/>
+          <img className="col-9" src={brandsPathInStore.urlOfImfg} alt=""/>
           <div className="brand_name">{brandsPathInStore.nameOfBrand}</div>
         </div>
       </div>
@@ -103,7 +99,7 @@ import "./brands.less"
         {
           breakpoint: 576,
           settings: {
-            slidesToShow: 1,
+            slidesToShow: 2,
             slidesToScroll: 1
           }
         }
@@ -120,10 +116,10 @@ import "./brands.less"
     return (<div className="popular_brands">
       
           <div className="inner_brands">
-              <div className="title">
-                  <div className="line"></div>
+              
+                  
                   <div className="title_content">POPULAR BRANDS</div>
-              </div>
+             
               <div className="brand_slider">
               <div className="home_inner">
                                   

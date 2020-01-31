@@ -5,6 +5,8 @@
     overflow: hidden;
 
     
+
+    
     
 
     background: #FAFAFA;
@@ -15,8 +17,16 @@
         width: 100%;
         height: 844px;
         display: flex;
-        // flex-wrap: wrap;
+        
         justify-content: space-between;
+
+        .tablet({
+            
+            flex-wrap: wrap;
+            
+        });
+
+        
 
         .title_inner{
             margin-left: 39px;
@@ -24,16 +34,29 @@
             height:833px ;
            
             position: relative;
-            
             .tablet({
-                width: 100px;
+                height: 290px;
+                margin: 0;
+                display: flex;
+                
+                justify-content: center;
+               
             });
+           
 
             // background: url("/dist/imgs/shapes-small.png") no-repeat center;
             img{
                 position: absolute;
                 bottom: 0;
                 left: 0;
+
+                .tablet({
+                    margin-bottom: -100px;
+                    margin-left: 240px;
+                    left: 0;
+                    bottom:  0;
+                    transform: rotate(90deg);
+                })
             }
 
             .title{
@@ -50,12 +73,20 @@
                 
                 
                 writing-mode: tb-rl;
+
+                .tablet({
+                    writing-mode: horizontal-tb;
+                    transform: rotate(0deg);
+                    line-height: 110px;
+                });
                 transform:rotate(180deg);
     
                 .span1{
                     position: relative;
                     display: flex;
                     align-items: center;
+
+                    
                     .text_line{
                         position: absolute;
                         
@@ -72,6 +103,11 @@
                     bottom: 0;
                     font-size: 108px;
                     margin-bottom: 90px;
+
+                    .tablet({
+                        margin: 0;
+                        margin-right: -180px;
+                    })
                     
                 }
     

@@ -1,13 +1,12 @@
 import {observable, computed, action} from 'mobx';
 
 export default class{
+   
     
     constructor(rootStore){
         this.rootStore = rootStore;
         
     } 
-
-    
 
     @observable brands = [
         {
@@ -59,13 +58,13 @@ export default class{
         },
     ]
     
-    
-    @observable items = getProducts();
 
     
     
     
-    
+    @observable items = getProducts();
+
+
 
 
     @computed get productsMap(){
@@ -119,6 +118,10 @@ export default class{
         return this.items[index];
         
     }
+
+   
+
+    
 }
 
 
@@ -155,6 +158,7 @@ function getProducts(){
             },
             srcOfImg:"/dist/imgs/imgsForMainSlider/sneakers01.png",
             srcOfAddImg:[
+                "/dist/imgs/imgsForMainSlider/sneakers01.png",
                 "https://via.placeholder.com/736x480.png",
                 "https://via.placeholder.com/736x480.png",
                 
@@ -189,6 +193,7 @@ function getProducts(){
             },
             srcOfImg:"../dist/imgs/imgsForMainSlider/sneakers02.png",
             srcOfAddImg:[
+                "/dist/imgs/imgsForMainSlider/sneakers02.png",
                 "https://via.placeholder.com/600x300.png",
                 "https://via.placeholder.com/600x300.png",
             ],
@@ -222,6 +227,7 @@ function getProducts(){
             },
             srcOfImg:"../dist/imgs/imgsForMainSlider/sneakers03.png",
             srcOfAddImg:[
+                "/dist/imgs/imgsForMainSlider/sneakers03.png",
                 "https://via.placeholder.com/600x300.png",
                 "https://via.placeholder.com/600x300.png",
             ],
@@ -255,6 +261,7 @@ function getProducts(){
             },
             srcOfImg:"../dist/imgs/imgsForMainSlider/sneakers04.png",
             srcOfAddImg:[
+                "/dist/imgs/imgsForMainSlider/sneakers04.png",
                 "https://via.placeholder.com/600x300.png",
                 "https://via.placeholder.com/600x300.png",
             ],
@@ -288,6 +295,7 @@ function getProducts(){
             },
             srcOfImg:"../dist/imgs/imgsForSecondSlider/sneakers06.png",
             srcOfAddImg:[
+                "/dist/imgs/imgsForSecondSlider/sneakers06.png",
                 "https://via.placeholder.com/600x300.png",
                 "https://via.placeholder.com/600x300.png",
             ],
@@ -321,6 +329,7 @@ function getProducts(){
             },
             srcOfImg:"../dist/imgs/imgsForSecondSlider/sneakers05.png",
             srcOfAddImg:[
+                "/dist/imgs/imgsForSecondSlider/sneakers05.png",
                 "https://via.placeholder.com/600x300.png",
                 "https://via.placeholder.com/600x300.png",
             ],
@@ -354,6 +363,7 @@ function getProducts(){
             },
             srcOfImg:"../dist/imgs/imgsForSecondSlider/sneakers07.png",
             srcOfAddImg:[
+                "/dist/imgs/imgsForSecondSlider/sneakers07.png",
                 "https://via.placeholder.com/600x300.png",
                 "https://via.placeholder.com/600x300.png",
             ],
@@ -387,6 +397,7 @@ function getProducts(){
             },
             srcOfImg:"../dist/imgs/imgsForSecondSlider/sneakers08.png",
             srcOfAddImg:[
+                "/dist/imgs/imgsForSecondSlider/sneakers08.png",
                 "https://via.placeholder.com/600x300.png",
                 "https://via.placeholder.com/600x300.png",
             ],
@@ -420,6 +431,7 @@ function getProducts(){
             },
             srcOfImg:"../dist/imgs/imgsForSecondSlider/sneakers09.png",
             srcOfAddImg:[
+                "/dist/imgs/imgsForSecondSlider/sneakers09.png",
                 "https://via.placeholder.com/600x300.png",
                 "https://via.placeholder.com/600x300.png",
             ],
@@ -452,9 +464,11 @@ function getProducts(){
                 "45":true,
             },
             srcOfImg:"../dist/imgs/imgsForSecondSlider/sneakers10.png",
-            srcOfAddImg:{
-                img1:"1",
-            },
+            srcOfAddImg:[
+                "/dist/imgs/imgsForSecondSlider/sneakers10.png",
+                "https://via.placeholder.com/600x300.png",
+                "https://via.placeholder.com/600x300.png",
+            ],
             price: 130,
             rest: 10
         },
@@ -485,6 +499,7 @@ function getProducts(){
             },
             srcOfImg:"../dist/imgs/imgsForSecondSlider/sneakers11.png",
             srcOfAddImg:[
+                "/dist/imgs/imgsForSecondSlider/sneakers11.png",
                 "https://via.placeholder.com/600x300.png",
                 "https://via.placeholder.com/600x300.png",
             ],
@@ -518,6 +533,7 @@ function getProducts(){
             },
             srcOfImg:"../dist/imgs/imgsForSecondSlider/sneakers12.png",
             srcOfAddImg:[
+                "/dist/imgs/imgsForSecondSlider/sneakers12.png",
                 "https://via.placeholder.com/600x300.png",
                 "https://via.placeholder.com/600x300.png",
             ],
@@ -527,4 +543,6 @@ function getProducts(){
         
         
     ];
+
+    
 }

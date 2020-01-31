@@ -32,11 +32,18 @@ class CustomSlide extends Component {
 
  class SimpleSlider extends Component {
 
-  state = {
-    slideIndex: 0,
-  };
-  
+  constructor(props){
+    super(props);
+    this.state =  {
+      slideIndex: 0,
+    }
+    
 
+ }
+
+  
+  
+  
   
 
   
@@ -73,37 +80,20 @@ class CustomSlide extends Component {
       
     };
 
-    let slides;
+    
     let imgsArr =  this.props.srcOfAddImg;
-    imgsArr.unshift(this.props.img);
-
     
-    
-    if(imgsArr.length >3){
-      imgsArr.shift(this.props.img);
-      slides = imgsArr.map( (img) =>{
+  
+    let slides = slides = imgsArr.map( (img) =>{
         return(
           <CustomSlide imgs = {img} key={img}   />
         );
       })
-
-    }else{
-      slides = imgsArr.map( (img) =>{
-        return(
-          <CustomSlide imgs = {img} key={img}   />
-        );
-      })
-    }
+    
     
 
 
-  let dots = imgsArr.map( (img,id)=>{
-      return(
-        <div key={id} className="dot_inner">
-          <img  src={img} alt=""   onClick={()=>this.slider.slickGoTo(id)}/>
-        </div>
-      );
-  })
+  
 
     
     
@@ -115,15 +105,10 @@ class CustomSlide extends Component {
                                 
       <Slider ref={slider => (this.slider = slider)} {...settings} >
         {slides}
-
-          
-        
       </Slider>
         
       </div>
-      <div className="dots_pr">
-          {dots}
-        </div>
+        
       </>
     );
   }

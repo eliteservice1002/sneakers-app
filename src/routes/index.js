@@ -3,6 +3,7 @@ import Page404 from '~p/error404';
 import Product from '~p/product';
 import Products from '~p/products';
 import Todolist from '~p/todolistmobx/todolist.js';
+import Hook from '~p/hook'
 
 import Test from '~p/todolistmobx/components/childs/test.js';
 import TestInner from '~p/todolistmobx/components/childs/testInner.js';
@@ -48,6 +49,13 @@ let routes = [,
         exact: false,
 
     },
+    {
+        name: 'hook',
+        url: '/hook',
+        component: Hook,
+        exact: true,
+
+    },
     
     
     {
@@ -58,18 +66,6 @@ let routes = [,
 
 let routesMap = {};
 
-// let nestedMap = {};
-
-
-// routes.forEach( (ro) =>{
-//     if(ro.hasOwnProperty("nestedRoute")){
-//         ro.nestedRoute.forEach((nestedRo) =>{
-//             nestedMap[nestedRo.name] = nestedRo.url;
-//         } )
-//     }else{
-//         return null;
-//     }
-// })
 
 
 routes.forEach((route) => {

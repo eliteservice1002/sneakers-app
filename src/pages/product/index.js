@@ -21,24 +21,46 @@ import Error404 from "~c/errors/404"
 
 
 @inject('stores') @observer class Product extends React.Component{
+    constructor(props){
+        super(props);
+        this.state =  {
+          slideIndex: 0,
+        }
+        this.slider = React.createRef();
+    
+     }
 
+    //  componentDidMount(){
+    //      console.log(this.slider)
+    //  }
+
+     changeSlide = (cnt) =>{
+         this.slider.current.slider.slickGoTo(cnt);  
+     }
     
 
     render(){
         let productStore = this.props.stores.products;
         let id = this.props.match.params.url;
 
-       
+        
         
         let product = productStore.getById(id);
 
 
         let colors = product.availableColors;
 
-
-        
         
 
+        let imgsArr = product.srcOfAddImg;
+        
+        let dots = imgsArr.map( (img,id)=>{
+            return(
+              <div key={id} className="dot_inner" onClick={() =>this.changeSlide(id)}>
+                <img  src={img} alt=""   />
+              </div>
+            );
+        })
        
 
         let colorsBtns = Object.keys(colors).map( (c,id)=>{
@@ -72,7 +94,10 @@ import Error404 from "~c/errors/404"
                         {/*  */}
                         <div className="row">
                             <div className="col-9 col-xl-9">
-                                <ProductSlider srcOfAddImg={product.srcOfAddImg} img={product.srcOfImg} id={id}/>
+                                <ProductSlider ref={this.slider} srcOfAddImg={product.srcOfAddImg} img={product.srcOfImg} id={id}/>
+
+                                
+                               
                             </div>
 
                             <div className="col-3 col-xl-3">
@@ -113,6 +138,11 @@ import Error404 from "~c/errors/404"
                                                         
                                 </div>
                             </div>
+                            
+
+                            <div className="dots_pr">
+                                    {dots}
+                                </div>
                         </div>
                         
                     </div>

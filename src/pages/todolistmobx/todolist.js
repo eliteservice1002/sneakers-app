@@ -1,16 +1,20 @@
 import React from 'react';
 import {observer, inject} from 'mobx-react';
 import { Route, Link } from "react-router-dom";
-
+import { withRouter } from "react-router";
 
 // import Test from "./components/childs/test.js.js"
 
 import {Card,Button,Nav} from 'react-bootstrap'
 
 import Note from './components/note.js'
-import { flow } from 'mobx';
+import "./style.less";
 
-import logo from "./eefwfw.png"
+
+
+
+
+
     
 
 
@@ -20,13 +24,18 @@ import logo from "./eefwfw.png"
         super(props)
 
         
-    }   
+    }
+    
+   
 
     
 
 
     render(){
+        
         const todostore = this.props.stores.todolist;
+
+
         
         let notes = todostore.notes.map( (note,id) =>{
             return <Note key={id} value={note} id={id}/>
@@ -36,9 +45,9 @@ import logo from "./eefwfw.png"
             <>
             <h1>todolist</h1>
             
-            <form onSubmit={(e)=>todostore.makeNote(e)} >
+            <form onSubmit={ (e)=>todostore.makeNote(e)} >
                 <input
-                onChange={(e)=> todostore.getValue(e)}
+                onChange={ (e)=> todostore.getValue(e)}
 
                  />
 
@@ -52,8 +61,8 @@ import logo from "./eefwfw.png"
 
             {notes}
 
-            <img src={logo} alt=""/>
-            
+           
+
 
         </>
         );

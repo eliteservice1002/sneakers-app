@@ -14,41 +14,45 @@
         display: flex;
         flex-direction: column;
 
-        .title{
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 410px;
-            height: 50px;
-            margin-top: 45px;
-            margin-bottom: 25px;
+        
+            
+           
+            
+            
             
            .title_content{
-            position: absolute;
-            right: 0;
+            display: flex;
+            margin-top: 45px;
+            margin-bottom: 25px;
+            align-items: center;
+            
             font-weight: 300;
             font-size: 2rem;
-           }
-            
-            .line{
-                
-                position: absolute;
+
+            &::before{
+                content: "";
+                margin-right: -4px;
                 background: #000;
                 height: 5px;
                 width: 120px;
-                
             }
-        }
+           }
+            
+            
+        
         
         .block_of_brand{
-            .size(12);
-            min-width: 300px;
+            width: 100%;
+            // min-width: 300px;
             height: 390px;
             background: #fff;
             border-radius: 10px;
             position: relative;
             color:@grey;
+
+            .tablet({
+                height: 300px;
+            });
 
             img{
                 position: absolute;
