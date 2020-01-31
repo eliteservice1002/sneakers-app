@@ -1,4 +1,5 @@
 let path = require('path');
+// var HtmlWebpackPlugin = require('html-webpack-plugin');
 let MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 let conf = {
@@ -8,10 +9,13 @@ let conf = {
         filename: 'main.js',
         publicPath: '/dist/'
     },
+    
     plugins: [
+        // new HtmlWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: 'styles.css',
         }),
+       
     ],
     module: {
         rules: [
@@ -78,13 +82,14 @@ let conf = {
             }, 
             
             {
-                test: /\.(png|jpg|gif|svg)$/,
+                test: /\.(png|jpg|gif)$/,
                 use:[
                     {
                         loader: 'file-loader',
                         options: {
                         outputPath: 'images',
                         name: '[name].[ext]',
+                        useRelativePath: true,
                         }
                     },
                     {

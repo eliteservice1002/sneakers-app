@@ -23,6 +23,12 @@
 
 @offset:30px;
 
+
+
+.tablet(@rules) {
+    @media (min-width: @tablet) { @rules(); }
+  }
+
 .size(@n){ 
     width: calc(100%/@colums * @n -@offset);
 }

@@ -150,7 +150,7 @@ import $ from 'jquery'
 
                 <div className="most_popular">
                     <div className="main_inner">
-                        <div className="title_inner">
+                        <div className="title_inner col-3  ">
                             <img src="../dist/imgs/imgsForHomeUsage/shapes-small.png" alt=""/>
                             <div className="title">
                                 <span className="span1">THE MOST
@@ -161,7 +161,7 @@ import $ from 'jquery'
                                 <span className="span2">POPULAR</span>
                             </div>
                         </div>
-                        <div className="second_slider">
+                        <div className="second_slider col-9 ">
                             <SliderPopular/>
                         </div>
                     </div>
