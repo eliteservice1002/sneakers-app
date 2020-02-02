@@ -1,7 +1,8 @@
 import {observable, computed, action} from 'mobx';
 
 export default class{
-    @observable products = []
+    @observable products = [{id:104}]
+    // @observable fedf = [{id:104,size}];
 
     constructor(rootStore){
         this.rootStore = rootStore;
@@ -41,8 +42,14 @@ export default class{
 
 
     @action add(id){
-        this.products.push({id, cnt: 1});
+
+        let isThere = !this.products.some((product) => product.id === id);
+        if(isThere){
+            this.products.push({id, cnt: 1});
+        }   
     }
+
+
 
     @action change(id, cnt){
         let index = this.products.findIndex((pr) => pr.id === id);

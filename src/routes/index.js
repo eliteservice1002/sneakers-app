@@ -3,7 +3,7 @@ import Page404 from '~p/error404';
 import Product from '~p/product';
 import Products from '~p/products';
 import Todolist from '~p/todolistmobx/todolist.js';
-import Hook from '~p/hook'
+import Weather from '~p/weather'
 
 import Test from '~p/todolistmobx/components/childs/test.js';
 import TestInner from '~p/todolistmobx/components/childs/testInner.js';
@@ -52,7 +52,7 @@ let routes = [,
     {
         name: 'hook',
         url: '/hook',
-        component: Hook,
+        component: Weather,
         exact: true,
 
     },

@@ -95,16 +95,23 @@ export default class{
     }
 
     @observable productState = {
-        id:"", 
-        color:"",
-        choosenSize:"",
-        region:""
-    }
+            id:"", 
+            color:"",
+            choosenSize:"",
+            region:""
+        }
+    
 
     @action selectColor(color,id){
          let i = this.productsMap[id];
          let pr = this.items[i]
          this.productState.color = color;
+    }
+
+    @action selceSize(color,id){
+         
+         this.productState.color = color;
+
     }
 
     
@@ -125,9 +132,6 @@ export default class{
 }
 
 
-
-
-
 // server api
 function getProducts(){
     return [
@@ -145,9 +149,9 @@ function getProducts(){
                 dark_blue:false
             },
             availableSize:{
-                "36":true,
-                "37":true,
-                "38":true,
+                "36":false,
+                "37":false,
+                "38":false,
                 "39":true,
                 "40":true,
                 "41":true,
@@ -155,6 +159,12 @@ function getProducts(){
                 "43":true,
                 "44":true,
                 "45":true,
+            },
+            regions:{
+                "EU":false,
+                "US":true,
+                "UK":true,
+
             },
             srcOfImg:"/dist/imgs/imgsForMainSlider/sneakers01.png",
             srcOfAddImg:[
@@ -191,6 +201,12 @@ function getProducts(){
                 "44":true,
                 "45":true,
             },
+            regions:{
+                "EU":true,
+                "US":true,
+                "UK":true,
+
+            },
             srcOfImg:"../dist/imgs/imgsForMainSlider/sneakers02.png",
             srcOfAddImg:[
                 "/dist/imgs/imgsForMainSlider/sneakers02.png",
@@ -224,6 +240,12 @@ function getProducts(){
                 "43":true,
                 "44":true,
                 "45":true,
+            },
+            regions:{
+                "EU":true,
+                "US":true,
+                "UK":true,
+
             },
             srcOfImg:"../dist/imgs/imgsForMainSlider/sneakers03.png",
             srcOfAddImg:[
@@ -259,6 +281,12 @@ function getProducts(){
                 "44":true,
                 "45":true,
             },
+            regions:{
+                "EU":true,
+                "US":true,
+                "UK":true,
+
+            },
             srcOfImg:"../dist/imgs/imgsForMainSlider/sneakers04.png",
             srcOfAddImg:[
                 "/dist/imgs/imgsForMainSlider/sneakers04.png",
@@ -292,6 +320,12 @@ function getProducts(){
                 "43":true,
                 "44":true,
                 "45":true,
+            },
+            regions:{
+                "EU":true,
+                "US":true,
+                "UK":true,
+
             },
             srcOfImg:"../dist/imgs/imgsForSecondSlider/sneakers06.png",
             srcOfAddImg:[
@@ -327,6 +361,12 @@ function getProducts(){
                 "44":true,
                 "45":true,
             },
+            regions:{
+                "EU":true,
+                "US":true,
+                "UK":true,
+
+            },
             srcOfImg:"../dist/imgs/imgsForSecondSlider/sneakers05.png",
             srcOfAddImg:[
                 "/dist/imgs/imgsForSecondSlider/sneakers05.png",
@@ -360,6 +400,12 @@ function getProducts(){
                 "43":true,
                 "44":true,
                 "45":true,
+            },
+            regions:{
+                "EU":true,
+                "US":true,
+                "UK":true,
+
             },
             srcOfImg:"../dist/imgs/imgsForSecondSlider/sneakers07.png",
             srcOfAddImg:[
@@ -395,6 +441,12 @@ function getProducts(){
                 "44":true,
                 "45":true,
             },
+            regions:{
+                "EU":true,
+                "US":true,
+                "UK":true,
+
+            },
             srcOfImg:"../dist/imgs/imgsForSecondSlider/sneakers08.png",
             srcOfAddImg:[
                 "/dist/imgs/imgsForSecondSlider/sneakers08.png",
@@ -428,6 +480,12 @@ function getProducts(){
                 "43":true,
                 "44":true,
                 "45":true,
+            },
+            regions:{
+                "EU":true,
+                "US":true,
+                "UK":true,
+
             },
             srcOfImg:"../dist/imgs/imgsForSecondSlider/sneakers09.png",
             srcOfAddImg:[
@@ -463,6 +521,12 @@ function getProducts(){
                 "44":true,
                 "45":true,
             },
+            regions:{
+                "EU":true,
+                "US":true,
+                "UK":true,
+
+            },
             srcOfImg:"../dist/imgs/imgsForSecondSlider/sneakers10.png",
             srcOfAddImg:[
                 "/dist/imgs/imgsForSecondSlider/sneakers10.png",
@@ -497,6 +561,12 @@ function getProducts(){
                 "44":true,
                 "45":true,
             },
+            regions:{
+                "EU":true,
+                "US":true,
+                "UK":true,
+
+            },
             srcOfImg:"../dist/imgs/imgsForSecondSlider/sneakers11.png",
             srcOfAddImg:[
                 "/dist/imgs/imgsForSecondSlider/sneakers11.png",
@@ -530,6 +600,12 @@ function getProducts(){
                 "43":true,
                 "44":true,
                 "45":true,
+            },
+            regions:{
+                "EU":true,
+                "US":true,
+                "UK":true,
+
             },
             srcOfImg:"../dist/imgs/imgsForSecondSlider/sneakers12.png",
             srcOfAddImg:[

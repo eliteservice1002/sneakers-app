@@ -1,8 +1,64 @@
 @import "../../less/vars/var.less";
 
 .cart{
-    background: @white;
-    height: 110vh;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    background: #FFF8F8;
     font-family: 'Bangers', cursive;
+
+    .cart_inner{
+        margin-top: 200px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 60%;
+
+        .cart_item{
+            margin-top: 50px;
+            width: 100%;
+            display: flex;
+            width: 100%;
+            height: 50%;
+            
+
+            .img_wrapper{
+                
+                display: flex;
+                justify-content: center;
+                .img_cart{
+                    height: 100%;
+                }
+                
+            }
+           
+
+            .pr_info{
+                
+                display: flex;
+                justify-content: space-between;
+
+                
+            }
+
+            .delete{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50px;
+                color: #fff;
+                height: 40px;
+                border-right: 10px;
+                background:@black;
+            }
+
+           
+            
+        }
+
+        
+    }
+
+    
 }
 

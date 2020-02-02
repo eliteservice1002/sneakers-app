@@ -11,8 +11,19 @@ import Note from './components/note.js'
 import "./style.less";
 
 
-
-
+function Welcome(props) {
+    const showMessage = () => {
+      alert('Followed ' + props.user);
+    };
+  
+    const handleClick = () => {
+      setTimeout(showMessage, 200);
+    };
+  
+    return (
+      <button onClick={handleClick}>Follow</button>
+    );
+  }
 
 
     
@@ -22,8 +33,12 @@ import "./style.less";
 
     constructor(props){
         super(props)
-
-        
+      this.textInput =null;
+        this.setTextInputRef = element => {
+          
+          this.textInput = element;
+        };
+         
     }
     
    
@@ -61,9 +76,11 @@ import "./style.less";
 
             {notes}
 
-           
+           <Welcome/>
 
-
+           <div className="in">
+             <div className="cl">1234</div>
+           </div>
         </>
         );
     }

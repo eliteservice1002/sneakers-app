@@ -19,7 +19,7 @@ import { routesMap , urlBuilder } from '~/routes';
 
   render() {
     const { idOfProduct,...props} = this.props;
-
+    let storeCart =this.props.stores.cart;
     let productsPathInStore = this.props.stores.products.items[idOfProduct];
 
     // console.log(productsPathInStore.id)
@@ -30,14 +30,14 @@ import { routesMap , urlBuilder } from '~/routes';
           <div className="title"><span>{productsPathInStore.brand}</span> <br/>{productsPathInStore.model}</div>
           
             <div className="img_inner">
-                  {/* <Link  to={'products/' + productsPathInStore.id} > */}
-                    <img className=" col-xl-12 col-9 col-md-10" src={productsPathInStore.srcOfImg}  alt=""/>
+                  {/* <Link className="img-link" to={'products/' + productsPathInStore.id} > */}
+                    <img  src={productsPathInStore.srcOfImg}  alt=""/>
                   {/* </Link> */}
                 <div className="price_inner">
                   <div className="price" >
-                  <div className="price_img" >{productsPathInStore.price}$</div>
+                    <div className="price_img" >{productsPathInStore.price}$</div>
                   </div>
-                  <div className="cart" ></div>
+                  <div onClick={()=>storeCart.add(productsPathInStore.id)} className="cart" ><i className="fas fa-shopping-cart"></i></div>
               </div>
             </div>
            

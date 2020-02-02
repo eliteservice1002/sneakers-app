@@ -6,7 +6,7 @@ import {observer, inject} from 'mobx-react';
 
 // sliders
 import SliderHome from '~c/sliders/home_slider.js';
-import SliderPopular from '~c/sliders/popular_slider.js';
+import SliderPopular from '~c/sliders/popular_slider/popular_slider.js';
 import SliderBrand from '~c/sliders/brand_slider';
 import SliderReviews from '~c/sliders/reviews_slider.js';
 
@@ -146,7 +146,7 @@ import $ from 'jquery'
                                         <NavLink  activeClassName="selected" exact to="/products/list">Products</NavLink>
                                         <NavLink  activeClassName="selected" exact to={`${routesMap.products}/cart`}>cart</NavLink>
                                         <NavLink  activeClassName="selected" exact to={routesMap.todolist}>toDoList</NavLink>
-                                        <NavLink  activeClassName="selected" exact to={routesMap.hook}>hook</NavLink>
+                                        <NavLink  activeClassName="selected" exact to={routesMap.hook}>weather</NavLink>
                                         <a   >Men</a>
                                         <a >Women</a>
                                         <a >Kids</a>
@@ -190,20 +190,22 @@ import $ from 'jquery'
     {/* most_popular_slide */}
 
                 <div className="most_popular">
-                    <div className="main_inner">
-                        <div className="title_inner col-3 col-md-3 col-sm-12  ">
-                            <img src="../dist/imgs/imgsForHomeUsage/shapes-small.png" alt=""/>
-                            <div className="title">
-                                <span className="span1">THE MOST
-                                <div className="text_line"></div> 
-                                </span>
-                                
-                                <br/>
-                                <span className="span2">POPULAR</span>
+                    <div className="container">
+                        <div className="main_inner ">
+                            <div className="title_inner col-12 col-md-3   ">
+                                <img src="../dist/imgs/imgsForHomeUsage/shapes-small.png" alt=""/>
+                                <div className="title">
+                                    <span className="span1">THE MOST
+                                    <div className="text_line"></div> 
+                                    </span>
+                                    
+                                    <br/>
+                                    <span className="span2">POPULAR</span>
+                                </div>
                             </div>
-                        </div>
-                        <div className="second_slider col-9 col-md-9 col-sm-12">
-                            <SliderPopular/>
+                            <div className="second_slider col-12 col-md-9 ">
+                                <SliderPopular/>
+                            </div>
                         </div>
                     </div>
                 </div>

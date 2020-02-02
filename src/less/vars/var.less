@@ -5,7 +5,7 @@
 @computerW :1600px;
 @Largedesktop:1200px;
 @desktops:992px;
-@tablet:768px;
+@tablet:767px;
 @phones:576px ;
 
 
@@ -23,54 +23,36 @@
 
 @offset:30px;
 
-
-
-
-
-.size(@n){ 
-    width: calc(100%/@colums * @n -@offset);
-}
-
-.size-xxl(@n){ // 1600
-        @media screen and (max-width:@computerW){
-            .size(@n)
-    }
-}
-.size-xl(@n){ // 1200
-        @media screen and (max-width:@Largedesktop){
-            .size(@n)
-    }
-}
-.size-lg(@n){ //992
-        @media screen and (max-width:@desktops){
-            .size(@n)
-    }
-}
-.size-md(@n){ //768
-        @media screen and (max-width:@tablets){
-            .size(@n)
-    }
-}
-
-.size-xs(@n){ // 576
-        @media screen and (max-width:@phones){
-            .size(@n)
-    }
-}
-
-
 // 
 
+@shadow: rgba(97, 4, 95, 0.07) 0px 10px 40px 0px, rgba(62, 57, 107, 0.06) 0px 2px 9px 0px;
+// @shadowHover: rgba(62, 57, 107, 0.18) 0px 16px 32px 0px, transparent 0px 0px 0px;
 
-.tablet(@rules) { // 768
-    @media (max-width: @tablet) { @rules(); }
-  }
-.phone(@rules) { // 576
+.shadowHover(){
+    box-shadow: rgba(62, 57, 107, 0.18) 0px 16px 32px 0px, transparent 0px 0px 0px;
+    transition: all 0.5s ease 0s;
+        &:hover{
+        transform: translate(0px, -5px);
+        }
+}
+// 
+
+.phone(@rules) { // 576 xs
     @media (max-width: @phones) { @rules(); }
   }
-.desktop(@rules) { // 576
-    @media (max-width: @desktops) { @rules(); }
+.lgdesktop(@rules) { // 1200px xl
+    @media (max-width: @Largedesktop) and (min-width:@desktops) { @rules(); }
   }
+
+.tablet(@rules) { // 768 md
+    @media (max-width: @tablet) { @rules(); }
+  }
+
+.desktop(@rules) { // 992px lg
+    @media (max-width: @desktops) and (min-width:@tablet) { @rules(); }
+  }
+
+
 
 // special 
 
@@ -100,3 +82,33 @@
         }
     }
   
+    .size(@n){ 
+        width: calc(100%/@colums * @n -@offset);
+    }
+    
+    .size-xxl(@n){ // 1600
+            @media screen and (max-width:@computerW){
+                .size(@n)
+        }
+    }
+    .size-xl(@n){ // 1200
+            @media screen and (max-width:@Largedesktop){
+                .size(@n)
+        }
+    }
+    .size-lg(@n){ //992
+            @media screen and (max-width:@desktops){
+                .size(@n)
+        }
+    }
+    .size-md(@n){ //768
+            @media screen and (max-width:@tablets){
+                .size(@n)
+        }
+    }
+    
+    .size-xs(@n){ // 576
+            @media screen and (max-width:@phones){
+                .size(@n)
+        }
+    }

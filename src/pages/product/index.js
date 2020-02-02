@@ -20,19 +20,22 @@ import Error404 from "~c/errors/404"
 
 
 
+
 @inject('stores') @observer class Product extends React.Component{
     constructor(props){
         super(props);
         this.state =  {
           slideIndex: 0,
+          color:"",
+          color:"",
+          region:"EU",
+          
         }
         this.slider = React.createRef();
     
      }
 
-    //  componentDidMount(){
-    //      console.log(this.slider)
-    //  }
+   
 
      changeSlide = (cnt) =>{
          this.slider.current.slider.slickGoTo(cnt);  
@@ -41,6 +44,7 @@ import Error404 from "~c/errors/404"
 
     render(){
         let productStore = this.props.stores.products;
+        let prCart = this.props.stores.cart;
         let id = this.props.match.params.url;
 
         
@@ -48,11 +52,17 @@ import Error404 from "~c/errors/404"
         let product = productStore.getById(id);
 
 
-        let colors = product.availableColors;
+        
 
         
 
         let imgsArr = product.srcOfAddImg;
+
+         const isAvailable = (objKey) =>{
+            return objKey !== true ? "disabled":"";
+        }
+
+        
         
         let dots = imgsArr.map( (img,id)=>{
             return(
@@ -62,12 +72,14 @@ import Error404 from "~c/errors/404"
             );
         })
        
+        let colors = product.availableColors;
 
         let colorsBtns = Object.keys(colors).map( (c,id)=>{
             
-                return <img key={id}  
-                    className={colors[c] == true ? "color": "disabled" } src={`/dist/images/${c}.png`}
-                    onClick={colors[c] == true ? () => productStore.selectColor(c,id) : null}
+                return <img key={id}
+                    className={`${isAvailable(colors[c])} color` }  
+                   src={`/dist/images/${c}.png`}
+                    onClick={colors[c] == true ?()=> this.setState({color:c}) : null}
                  alt=""   />
         });
 
@@ -75,12 +87,19 @@ import Error404 from "~c/errors/404"
 
         let sizesCarts = Object.keys(sizes).map( (s,id) =>{
             return(
-                <div key={id} className="size col-2">
+                <div key={id} className={`${isAvailable(sizes[s])} size col-2` }  
+                onClick={sizes[s] == true ? () =>this.setState({size:s}) :null}>
                     <div className="number">{s}</div>
-                    <div className="region"></div>
+                    <div className="region">{this.state.region}</div>
                 </div>
             );
         })
+
+        const regions = product.regions;
+
+        let regionsCards = Object.keys(regions).map( (r,id)=> (
+            <div key={r} className={`${isAvailable(regions[r])} region` } >{r}</div>
+        ))
         
         
         if(product == null || product.id.toString() !== id ){
@@ -91,13 +110,14 @@ import Error404 from "~c/errors/404"
                 <div className="container ">
                     
                     <div className="item_inner">
-                        {/*  */}
+                        
                         <div className="row">
                             <div className="col-9 col-xl-9">
-                                <ProductSlider ref={this.slider} srcOfAddImg={product.srcOfAddImg} img={product.srcOfImg} id={id}/>
+                                <ProductSlider ref={this.slider} srcOfAddImg={product.srcOfAddImg}  id={id}/>
 
                                 
-                               
+                               <div>{this.state.color}</div>
+                               <div>{this.state.size}</div>
                             </div>
 
                             <div className="col-3 col-xl-3">
@@ -116,25 +136,29 @@ import Error404 from "~c/errors/404"
                                             <div className="title">Choose your favourite color</div>
                                             <div className="colors">
                                                 {colorsBtns}
-                                                 {/* <img src={white} alt=""  onClick={() => productStore.selectColor("red",id)} className="color"/> */}
-                                                
                                             </div>
                                         </div>
 
-                                        <div className="some" style={{fontSize:"20px"}}>{productStore.productState.color}</div>
                                         <div className="size">
                                             <div className="title">
                                                 <div className="choose">Choose your size</div>
                                                 <div className="regions">
-                                                    <div className="region">EU</div>
-                                                    <div className="region">US</div>
-                                                    <div className="region">UK</div>
+                                                    {regionsCards}
                                                 </div>
                                             </div>
-                                            <div className="sizes  ">
+                                            <div className="sizes">
                                                 {sizesCarts}
                                             </div>
                                         </div>
+                                        <div className="add_to_pr_cart " onClick={() => prCart.add(id)}>
+                                       
+                                        <i className="fas fa-shopping-cart"></i>
+                                            Add to Cart
+                                        </div>
+                                        <div className="add_to_fav">
+                                            <i className="far fa-heart"></i>Add to favourites
+                                        </div>
+                                        
                                                         
                                 </div>
                             </div>
@@ -159,9 +183,6 @@ import Error404 from "~c/errors/404"
                 </div>
             </div>
             
-            // {/* slider */}
-            // <ProductSlider img={product.srcOfImg} otherImgs={{}}/>
-
         );
     }
 }
