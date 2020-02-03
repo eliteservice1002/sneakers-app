@@ -20,7 +20,6 @@ let routes = [,
         component: Home,
         exact: true
     },
-    
     {
         name: 'products',
         url: '/products',

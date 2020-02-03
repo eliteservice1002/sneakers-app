@@ -37,7 +37,7 @@ import { routesMap , urlBuilder } from '~/routes';
                   <div className="price" >
                     <div className="price_img" >{productsPathInStore.price}$</div>
                   </div>
-                  <div onClick={()=>storeCart.add(productsPathInStore.id)} className="cart" ><i className="fas fa-shopping-cart"></i></div>
+                  <div onClick={()=>storeCart.add(productsPathInStore.id)} className="cart" ><i className="fas fa-shopping-cart "></i></div>
               </div>
             </div>
            

@@ -54,6 +54,12 @@
    }
 }
 
+// .products{
+//     .common_title_wrapper{
+
+//     }
+// }
+
 .common_title_wrapper{
     width: 100%;
     z-index: 5;
@@ -63,31 +69,75 @@
     height: 100px;
     align-items: center;
 
+    .phone({
+        justify-content: center;
+        background: @black;
+    });
+    
+    
+
     .leftside_inner{
         display: flex;
         align-items: center;
+        
     }
     
     .right_nav{
-       
+        right: 0;
+        position: absolute;
         display: flex;
         align-items: center;
         justify-content: center;
-        // z-index:1 ;
-        // background: url("/dist/imgs/imgsForHomeUsage/Menu-Cart.png") no-repeat center;
-        width: 360px;
+        z-index: 1  ;
         height: 108px;
 
+        .phone({
+            display: none;
+         });
+        
+        
+
+        .right_nav_bg{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+
+            
+            
+        }
+
         .right_nav_inner{
-            // margin-left: 10px;
+            margin-left: 20px;
             width: 100%;
             display: flex;
             justify-content: space-around;
-            
+            position: relative;
 
             
+            
+            
+            .cnt_Cart{
+                position: absolute;
+                top: -4px;
+                right: -3px;
+                width: 14px;
+                height: 14px;
+                background: @red;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-size: 11px;
+            }
+            
             .search_icon{
-                height: 27px;
+                color: #000;
+                position: relative;
+                .rotateUpHover();
+                
     
             }
             .person_icon{
@@ -113,6 +163,10 @@
         font-weight: 300;
         font-size: 1.8rem;
         margin-left: 45px;
+
+        .phone({
+            display: none;
+         });
         
     }
     

@@ -1,7 +1,7 @@
 import {observable, computed, action} from 'mobx';
 
 export default class{
-    @observable products = [{id:104}]
+    @observable products = [];
     // @observable fedf = [{id:104,size}];
 
     constructor(rootStore){
@@ -12,10 +12,9 @@ export default class{
     
 
     @computed get productsDetailed(){
-        
         return this.products.map((pr) => {
             let product = this.rootStore.products.getById(pr.id);
-            return {...product, cnt:  pr.cnt};
+            return {...product, cnt:  pr.cnt,color:pr.color,size:pr.size,region:pr.region};
         });
         
     }
@@ -41,12 +40,17 @@ export default class{
     }
 
 
-    @action add(id){
-
-        let isThere = !this.products.some((product) => product.id === id);
-        if(isThere){
-            this.products.push({id, cnt: 1});
-        }   
+    @action add(id,color,size,region){
+        if(( color || size) == null){
+            
+        }else{
+            
+            let isThere = !this.products.some((product) => product.id === id);
+                if(isThere){
+                this.products.push({id, cnt: 1,color,size,region});
+            }   
+        }
+        
     }
 
 
@@ -60,12 +64,15 @@ export default class{
     }
 
     @action remove(id){
-        let index = this.products.findIndex((pr) => pr.id === id);
-        
-        if(index !== -1){
-            this.products.splice(index, 1);
-        }
+            this.products.splice(id, 1);
     }
+    // @action remove(id){
+    //     let index = this.products.findIndex((pr) => pr.id === id);
+        
+    //     if(index !== -1){
+    //         this.products.splice(index, 1);
+    //     }
+    // }
 }
 
 

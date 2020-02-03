@@ -35,6 +35,12 @@
         transform: translate(0px, -5px);
         }
 }
+.rotateUpHover(){
+    transition: all 0.5s ease 0s;
+        &:hover{
+        transform: translate(0px, -5px);
+        }
+}
 // 
 
 .phone(@rules) { // 576 xs
@@ -73,14 +79,14 @@
 
     @media (max-width: @tablet) {
         html{
-            font-size: 0.75rem;
+            font-size: 0.9rem;
         }
     }
-    @media (max-width: @phones) {
-        html{
-            font-size: 0.5rem;
-        }
-    }
+    // @media (max-width: @phones) {
+    //     html{
+    //         font-size: 0.5rem;
+    //     }
+    // }
   
     .size(@n){ 
         width: calc(100%/@colums * @n -@offset);
@@ -112,3 +118,7 @@
                 .size(@n)
         }
     }
+
+    // .cart_hover{
+
+    // }

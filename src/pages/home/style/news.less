@@ -18,22 +18,7 @@
         display: flex;
         align-items: flex-end;
 
-        // &:nth-child(1){
-            
-        //         content: "";
-        //         top: 0;
-        //         width: 316px;
-        //         height: 74px;
-        //         position: absolute;
-        //         padding: 10px;
-        //         background: #051026;
-        //         border-radius: 0 10px 10px 0;
-        //         margin-bottom: 10px;
-        //         filter: blur(5px);
-        //         filter: brightness(0.3);
-        //         filter: opacity(39%);
-            
-        // }
+        
         &:nth-child(2){
             background: #051026;
             align-items: flex-start;
@@ -61,11 +46,9 @@
         }
 
         .title_block{
-            font-weight: 300;
-            
-            
-            
-            
+            z-index: 1;
+            font-weight: 300;   
+            margin-bottom: 20px;
         }
     }
     
@@ -170,7 +153,7 @@
         align-items: flex-end;
         position: relative;
         width: 100%;
-
+        
         
 
 
@@ -204,17 +187,20 @@
                     //     width: 120%;
                     // });
 
-                    .s1060({
-                        width: 170%;
+                    // .s1060({
+                    //     width: 170%;
+                    // });
+
+                    .lgdesktop({
+                        width: 40%;
                     });
 
-                    .desktop({
-                        width: 180%;
-                    });
-
-                    .phone({
-                        width: 400%;
-                    });
+                        .desktop({
+                            width: 50%;
+                        });
+                        .tablet({
+                            width: 50%;
+                        });
 
                     
                     
@@ -234,6 +220,9 @@
                     transform:rotate(180deg);
                     width: 360px;
                     height: 430px;
+                    .phone({
+                        font-size: 5rem;
+                    });
 
                     .first_block_of_title{
                         
@@ -324,30 +313,24 @@
         
         
         .title{
-            position: relative;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            width: 457px;
-            height: 50px;
             margin-top: 45px;
             margin-bottom: 25px;
-            
-           .title_content{
-            position: absolute;
-            right: 0;
             font-weight: 300;
-            font-size: 36px;
-           }
-            
-            .line{
-                
-                position: absolute;
+            font-size: 2rem;
+            &::before{
+                content: "";
                 background: #fff;
                 height: 5px;
-                width: 167px;
+                width: 40%;
+                max-width: 167;
                 
             }
+            
+          
+            
+            
         }
         
         

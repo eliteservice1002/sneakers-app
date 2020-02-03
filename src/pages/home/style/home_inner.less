@@ -75,8 +75,11 @@
                     .desktop({
                         width: 80%;
                     });
+                    .tablet({
+                        width: 70%;
+                    });
                     .phone({
-                        width: 165%;
+                        width: 150%;
                         transform: rotate(75deg)
                     });
                     // .tablet({
@@ -92,15 +95,18 @@
                     top: 53%;
 
                     
-                    .lgdesktop({
-                        right: 6%;
-                    });
+                    // .lgdesktop({
+                    //     right: 6%;
+                    // });
                     .desktop({
-                        right: 10%;
+                        right: 9%;
                     });
                     
                     
-
+                    .tablet({
+                        top: 50%;
+                        right: 14%;
+                    });
                     
 
                     .phone({
@@ -125,12 +131,19 @@
                         background-size: cover;
 
                         .phone({
+                            
                             height: 50px;
                             font-size: 16px;
                         });
                         .desktop({
-                           
+                            font-size: 26px;
+                            padding-right: 24px;
                             height: 80px;
+                        });
+                        .tablet({
+                            font-size: 20px;
+                            padding-right: 16px;
+                            height: 65px;
                         });
                         .lgdesktop({
                         font-size: 30px;
@@ -138,6 +151,7 @@
                     }
                     
                     .cart{
+                        cursor: pointer;
                         display: flex;
                         align-items: center;
                         position: absolute;
@@ -145,10 +159,18 @@
                         right: -36px;
                         z-index: -1;
                         background: #E71C4C;
+                        
 
                         .desktop({
                             height: 60px;
                         });
+                        .tablet({
+                            right: -29px;
+                            height: 44px;
+                        });
+                        svg{
+                            .rotateUpHover();
+                        }
                     }
                 }
 

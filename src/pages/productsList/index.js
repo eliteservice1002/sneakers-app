@@ -37,12 +37,12 @@ import Brandslider from "~c/sliders/brand_slider";
                                     </div>
                                     <div className="right_slider_bar">
                                         <div className="price">${product.price}</div>
-                                        <div onClick={()=>console.log(1)} className="bookmark_icon"><i  className="far fa-heart"></i></div>
-                                        <div onClick={()=>storeCart.add(product.id)} className="bookmark_icon"><i className="fas fa-shopping-cart"></i></div>
+                                        <div onClick={()=>console.log(1)} className="icon"><i  className="far fa-heart"></i></div>
+                                        <div onClick={()=>storeCart.add(product.id)} className="icon"><i className="fas fa-shopping-cart"></i></div>
                                     </div>
                                     <Link to={`${product.id}`}>
                                         <div  className=" main_img">
-                                            <img className="col-11" src={product.srcOfImg} alt=""/>
+                                            <img className="col-11 " src={product.srcOfImg} alt=""/>
                                         </div>
                                     </Link>
                                     <div className="block_fotter">

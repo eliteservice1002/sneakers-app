@@ -16,6 +16,7 @@ import Cart from '~p/cart';
 
 
 import logo from "./assets/Logo.png";
+import rightNav from "./assets/Menu-Cart.png";
 
 
 
@@ -42,6 +43,7 @@ import logo from "./assets/Logo.png";
 
       componentDidMount(){
           window.scrollTo(0, 0);
+          
         window.addEventListener('scroll', this.handleScroll);
         
            
@@ -90,23 +92,34 @@ import logo from "./assets/Logo.png";
     render(){
         
 
-        
+        let cartStore = this.props.stores.cart;
         
         return(
        
-        <div className="container">
+        <div className="container products">
             <div ref={this.nav} className="common_title_wrapper">
                 <div className="leftside_inner">
                     <Link to={routesMap.home} className="homeLink"><img src={logo} alt=""/></Link>
                     <div className="common__title"> FIND YOUR BEST AIR </div>
                 </div>
-                <div className="right_nav">
-                    {/* <img src="/dist/imgs/imgsForHomeUsage/Menu-Cart.png" alt=""/> */}
+                <div className="right_nav col-xl-3 col-lg-4 col-5">
+                    <img className="right_nav_bg" src={rightNav} alt=""/>
                     <div className="right_nav_inner">
-                        <NavLink to={`${routesMap.products}/cart`}> <img className="search_icon" src="/dist/imgs/imgsForHomeUsage/avatar.png" alt=""/></NavLink>
-                        <NavLink to={`${routesMap.products}/cart`}><img className="search_icon" src="/dist/imgs/imgsForHomeUsage/icons8-search-64.png" alt=""/></NavLink>
-                        <NavLink to={`${routesMap.products}/cart`}><img className="search_icon" src="/dist/imgs/imgsForHomeUsage/icons8-heart-52.png" alt=""/></NavLink>
-                        <NavLink to={`${routesMap.products}/cart`}><img className="search_icon" src="/dist/imgs/imgsForHomeUsage/icons8-shopping-cart-128.png" alt=""/></NavLink>
+                        <NavLink  activeClassName="selected" className="search_icon" exact to={`${routesMap.products}/cart`}>
+                            <i className="fas fa-search fa-lg "></i>
+                        </NavLink>
+                        <NavLink  activeClassName="selected" className="search_icon" exact to={`${routesMap.products}/cart`}>
+                            <i className="far fa-user fa-lg "></i>
+                        </NavLink>
+                        <NavLink  activeClassName="selected" className="search_icon" exact to={`${routesMap.products}/cart`}>
+                            <i className="far fa-heart fa-lg "></i>
+                            </NavLink>
+                        <NavLink  activeClassName="selected " className="search_icon" exact to={`${routesMap.products}/cart`}>
+                            <i className="fas fa-shopping-cart fa-lg "></i>
+                            {cartStore !== 0 ? <div className="cnt_Cart">{cartStore.cartCnt}</div>:null}
+                        </NavLink>
+                        
+                        
                     </div>
                 </div>
             </div>
