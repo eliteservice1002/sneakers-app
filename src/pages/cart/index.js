@@ -6,7 +6,7 @@ import {observer, inject} from 'mobx-react';
 
 import './style.less';
 
-import LazyInput from "~c/inputs/minmax";
+import Minmax from "~c/inputs/minmax";
 
 
 
@@ -19,9 +19,7 @@ import LazyInput from "~c/inputs/minmax";
 
     render(){
         let prCart = this.props.stores.cart;
-        console.log(this.props)
         let cart_prs = prCart.productsDetailed.map( (pr,id) =>{
-            
             return(
                 
                 <div key={id} className="cart_item">
@@ -34,13 +32,19 @@ import LazyInput from "~c/inputs/minmax";
                                     <div className="brand">{pr.brand}</div>
                                     <div className="model">{pr.model}</div>
                                 </div>
-                                <div className="minmax"></div>
+                                <div className="minmax">
+                                    <Minmax
+                                    min={1}
+                                    max={5}
+                                    cnt={pr.cnt}
+                                    onChange={(cnt)=>prCart.change(pr.id,cnt)}
+                                /></div>
                                 <div className="price">{pr.price}$</div>
                             </div>
                             <div className="nav_bar">
                                 <div className="gender">{pr.gender}'s shoe</div>
-                                <div className="color">Color:{prCart.products[id].color}</div>
-                                <div className="size price">Size:{prCart.products[id].size}</div>
+                                <div className="color">Color:{pr.color}</div>
+                                <div className="size price">Size:{pr.size}</div>
                             </div>
                     </div>
                     
@@ -61,11 +65,13 @@ import LazyInput from "~c/inputs/minmax";
                         {cart_prs}
                         {prCart.cartCnt == 0  ? 
                                     <div className="empty_cart">
-                                        Вы не добавили ни одного товара :(
+                                        You have not selected more than one product <br/> :(
                                     </div>
-                                :<div className="total_bar col-6">
+                            :<div className="total_bar col-6">
                                 <div className="total col-6">TOTAL AMOUNT: ${prCart.total}</div>
-                                <div className="check_out col-6">Check out</div>
+                                <Link className="col-6 check_out_cart" to="/products/order">
+                                    <div className=" ">Check out</div>
+                                </Link>
                             </div>}
                                 
                     </div>

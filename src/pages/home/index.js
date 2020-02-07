@@ -18,7 +18,7 @@ import "./style/news.less";
 import "./style/home_inner.less";
 import "./style/intro.less";
 import "./style/reviews.less";
-import logo from "./imgs/Logo.png"
+import logo from "./imgs/Logo.svg"
 import firstNews from "./imgs/news_1.png";
 import secondNews from "./imgs/news_2.png";
 import thirdNews from "./imgs/news_3.png";
@@ -38,17 +38,16 @@ import $ from 'jquery'
         this.nav = React.createRef();
         
             this.state = {
-                scrollTop: 0,
-                slideIndex: 0,
+                
+                
                 lastScrollTop:0,
             }
             this.slider = React.createRef();
       }
 
       componentDidMount(){
-        
         window.addEventListener('scroll', this.handleScroll);
-           
+        
         
     }
 
@@ -66,42 +65,44 @@ import $ from 'jquery'
     
     
 
-    handleScroll = () => {
-        
+      handleScroll = () => {
         let nav = this.nav.current;
         
+
+        // let st = this.state.scrollTop;
+        let st = window.scrollY;
         
 
-        let st = this.state.scrollTop;
-        
-
-        if(st > this.state.lastScrollTop ){
-            
+        if(st > this.state.lastScrollTop && st > 100 ){
             // down
+            
             nav.classList.add("scrollDown")
             nav.classList.remove("scrollUp")
 
-    }else if(st < this.state.lastScrollTop && st !==0){  
-            // up
-            nav.classList.add("scrollUp")
-            nav.classList.remove("scrollDown")
+        }else if(st < this.state.lastScrollTop ){  
+                // up
+                
+                nav.classList.add("scrollUp")
+                nav.classList.remove("scrollDown")
 
-    }
-    
+        }
+
+        if(window.scrollY ==  0){
+            nav.classList.add("scrollUp");
+            nav.classList.remove("scrollDown")
+        }
+
         this.state.lastScrollTop = st;
 
 
-
-        
-        this.setState({
-            scrollTop:window.scrollY
-        });
-
-       
     }
 
     changeSlide = (cnt) =>{
-        this.slider.current.slider.slickGoTo(cnt);  
+        this.slider.current.slider.slickGoTo(cnt); 
+        this.setState({
+            active:cnt
+        }) 
+        
     }
     
 
@@ -119,24 +120,30 @@ import $ from 'jquery'
 
         let arr = [1,2,3,4];
         
-        
+         
 
         let dots = arr.map( (img,i) =>{
+
+            
             return(
-            <div className="dot" key={i} onClick={() =>this.changeSlide(i)}>
-                <div className="title" >{namesOfBrands[i]+","}
-                <br/>
-                <span>{namesOfSneakers[i]}</span>
+                <div className={`dot ${this.state.active === i ?"active":""    }`} 
+                key={i} onClick={() =>{this.changeSlide(i)}}>
+                    
+                    <div className="title" >{namesOfBrands[i]+","}
+                    <br/>
+                    <span>{namesOfSneakers[i]}</span>
+                    </div>
+                        <img src={"/dist/imgs/imgsForMainSlider/sneakers0" + (i+1) +".png"} alt=""/>
                 </div>
-                    <img src={"/dist/imgs/imgsForMainSlider/sneakers0" + (i+1) +".png"} alt=""/>
-            </div>
             );
         })
+        
 
         return (
-            <div className="home">
+            <div className="home" >
                 {/* intro */}
-
+                
+              
                 <div ref={this.nav}  className="common_title_wrapper" >
                         <div className="container">
                             <div className="nav">
@@ -156,26 +163,27 @@ import $ from 'jquery'
                             </div>
                             
                         </div>
-                        <div className="right_nav col-xl-3 col-lg-4 col-5">
-                            <img className="right_nav_bg" src={rightNav} alt=""/>
-                            <div className="right_nav_inner">
-                                <NavLink  activeClassName="selected" className="search_icon" exact to={`${routesMap.products}/cart`}>
-                                    <i className="fas fa-search fa-lg "></i>
-                                </NavLink>
-                                <NavLink  activeClassName="selected" className="search_icon" exact to={`${routesMap.products}/cart`}>
-                                    <i className="far fa-user fa-lg "></i>
-                                </NavLink>
-                                <NavLink  activeClassName="selected" className="search_icon" exact to={`${routesMap.products}/cart`}>
-                                    <i className="far fa-heart fa-lg "></i>
-                                 </NavLink>
-                                <NavLink  activeClassName="selected " className="search_icon" exact to={`${routesMap.products}/cart`}>
-                                    <i className="fas fa-shopping-cart fa-lg "></i>
-                                    <div className="cnt_Cart">{cartStore.cartCnt}</div>
-                                </NavLink>
-                                
-                                
-                            </div>
-                        </div>
+                       
+                            {/* <div className="right_nav col-xl-3 col-lg-4 col-5">
+                                <img className="right_nav_bg" src={rightNav} alt=""/>
+                                <div className="right_nav_inner">
+                                    <NavLink  activeClassName="selected" className="search_icon" exact to={`${routesMap.products}/cart`}>
+                                        <i className="fas fa-search fa-lg "></i>
+                                    </NavLink>
+                                    <NavLink  activeClassName="selected" className="search_icon" exact to={`${routesMap.products}/cart`}>
+                                        <i className="far fa-user fa-lg "></i>
+                                    </NavLink>
+                                    <NavLink  activeClassName="selected" className="search_icon" exact to={`${routesMap.products}/cart`}>
+                                        <i className="far fa-heart fa-lg "></i>
+                                    </NavLink>
+                                    <NavLink  activeClassName="selected " className="search_icon" exact to={`${routesMap.products}/cart`}>
+                                        <i className="fas fa-shopping-cart fa-lg "></i>
+                                        <div className="cnt_Cart">{cartStore.cartCnt}</div>
+                                    </NavLink>
+                                    
+                                </div>
+                            </div> */}
+                        
                     </div>
 
 
@@ -308,8 +316,10 @@ import $ from 'jquery'
 
 
                 {/* POPULAR BRANDS */}
-                <div style={{background:"#EEECEC"}} className="container">
-                        <SliderBrand/>    
+                <div  className="brands_page">
+                    <div style={{background:"#EEECEC",maxWidth:"100%"}} className="container">
+                            <SliderBrand/>    
+                    </div>
                 </div>
                 
 
@@ -336,8 +346,7 @@ import $ from 'jquery'
 
                 
 
-
-
+        
                 
             </div>
         );

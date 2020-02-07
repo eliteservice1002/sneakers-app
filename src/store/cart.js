@@ -1,8 +1,7 @@
 import {observable, computed, action} from 'mobx';
 
 export default class{
-    @observable products = [];
-    // @observable fedf = [{id:104,size}];
+    @observable products = [{id:100,cnt:1},{id:101,cnt:1},{id:102,cnt:1},{id:103,cnt:1},];
 
     constructor(rootStore){
         this.rootStore = rootStore;
@@ -14,7 +13,12 @@ export default class{
     @computed get productsDetailed(){
         return this.products.map((pr) => {
             let product = this.rootStore.products.getById(pr.id);
-            return {...product, cnt:  pr.cnt,color:pr.color,size:pr.size,region:pr.region};
+            return {...product, 
+                cnt:  pr.cnt, 
+                color:pr.color,
+                size:pr.size,
+                region:pr.region
+            };
         });
         
     }
@@ -30,27 +34,29 @@ export default class{
             return t + pr.price * pr.cnt;
         }, 0);
     }
-
-
-    
-
     
     @computed get cartCnt(){
         return this.products.length; 
     }
 
+    @observable isItSelected = {
+        selectedAll:true
+    }
+
 
     @action add(id,color,size,region){
-        if(( color || size) == null){
-            
-        }else{
-            
+        if( (color && size) !== undefined ){
             let isThere = !this.products.some((product) => product.id === id);
-                if(isThere){
+            if( isThere){
                 this.products.push({id, cnt: 1,color,size,region});
-            }   
+                this.isItSelected.selectedAll =  true;
+            }else{
+                console.log("alredy in cart")
+            }
+                
+        }else{
+            this.isItSelected.selectedAll =  false;
         }
-        
     }
 
 

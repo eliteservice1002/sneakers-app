@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './less/style.less';
 import App from './app';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-import './less/style.less';
+
 
 
 import '@fortawesome/fontawesome-free/js/fontawesome'

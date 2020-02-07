@@ -17,29 +17,17 @@ class CustomSlide extends Component {
   constructor(props){
     super(props);
     this.img = React.createRef();
-    this.state={
-      imgw:""
-    }
+    
   }
   
 
-  propertyWidthForImg = () =>{
-    let img = this.img.current;
-    this.setState({imgw:img.naturalWidth});
-    if(img.naturalWidth < 400){
-      
-      img.classList.add('vertical_img');
-      img.classList.remove('col-xl-8','col-lg-10', 'col-md-12');
-    }else{
-      img.classList.remove('vertical_img');
-    }
-  }
+
   render() {
 
         return (
           
             <div className=" product_block " >
-              <img className=" col-xl-8 col-lg-10 col-md-12" onLoad={()=>this.propertyWidthForImg()} ref={this.img} src={this.props.imgs} alt=""/>
+              <img className=" col-xl-8 col-lg-10 col-md-12"  ref={this.img} src={this.props.imgs} alt=""/>
             
             </div>
           

@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.less";
 import {observer, inject} from 'mobx-react';
 import React, { Component } from "react";
 import Slider from "react-slick";
-import { Link, NavLink } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { routesMap , urlBuilder } from '~/routes';
 
 
@@ -25,19 +25,25 @@ import { routesMap , urlBuilder } from '~/routes';
     // console.log(productsPathInStore.id)
     return (
       
-        <div {...props}   className="block " style={{display:"flex"}}>
+        <div   className="block " style={{display:"flex"}}>
           
           <div className="title"><span>{productsPathInStore.brand}</span> <br/>{productsPathInStore.model}</div>
           
             <div className="img_inner">
-                  {/* <Link className="img-link" to={'products/' + productsPathInStore.id} > */}
+                  
                     <img  src={productsPathInStore.srcOfImg}  alt=""/>
-                  {/* </Link> */}
+                  
                 <div className="price_inner">
                   <div className="price" >
                     <div className="price_img" >{productsPathInStore.price}$</div>
                   </div>
-                  <div onClick={()=>storeCart.add(productsPathInStore.id)} className="cart" ><i className="fas fa-shopping-cart "></i></div>
+                
+                  <div  className="cart" >
+                    <Link to={'products/' + productsPathInStore.id} >
+                      <i className="fas fa-shopping-cart "></i>
+                    </Link>
+                  </div>
+                
               </div>
             </div>
            
@@ -54,8 +60,8 @@ import { routesMap , urlBuilder } from '~/routes';
   
   constructor(props){
     super(props);
-      this.state =  {
-        slideIndex: 0,
+      this.state={
+        slideIndex:""
       }
     
 
@@ -78,7 +84,16 @@ import { routesMap , urlBuilder } from '~/routes';
       // autoplay: true,
       // autoplaySpeed: 3000,
       // centerMode:true,
-     
+      // dots: true,
+      beforeChange: (current, next) =>{
+        this.setState({ slideIndex: next });
+        
+      },
+      // customPaging: function(i) {
+      //   return (
+      //    <div></div>
+      //   );
+      // },
   
       arrows:false
     };

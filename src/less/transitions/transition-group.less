@@ -40,6 +40,19 @@
       transform: scale(1);
     }
   }
+  // dots home
+  @keyframes puff-in-center {
+    0% {
+      transform: scale(2);
+      filter: blur(4px);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
 
 
 
@@ -90,6 +103,31 @@
     }
     100% {
       transform: translateY(0) rotateX(0deg);
+      opacity: 1;
+    }
+  }
+
+
+  @keyframes slide-in-left {
+    0% {
+      transform: translateX(-1000px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  // product didnt select
+
+  @keyframes slide-in-left {
+    0% {
+      transform: translateX(-1000px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
       opacity: 1;
     }
   }

@@ -19,6 +19,7 @@ export default class extends React.PureComponent{
     lazyInput = React.createRef();
 
     increase = () => {
+        
         this.set(this.props.cnt + 1);
     }
 
@@ -45,16 +46,16 @@ export default class extends React.PureComponent{
     render(){
         
         return (
-            <div>
-                <button onClick={this.decrease}>-</button>
+           <>
+                <div className=" btn increase" onClick={this.decrease}>-</div>
                 <AppLazyInput
-                    nativeProps={{type: 'text', className: styles.input}}
+                    nativeProps={{type: 'text'}}
                     value={this.props.cnt}
                     onChange={this.onChange}
                     ref={this.lazyInput}
                 />
-                <button onClick={this.increase}>+</button>
-            </div>
+                <div className=" btn decrease" onClick={this.increase}>+</div>
+            </>
         );
     }
 }

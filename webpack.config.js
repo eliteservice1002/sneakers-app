@@ -2,8 +2,10 @@ let path = require('path');
 // var HtmlWebpackPlugin = require('html-webpack-plugin');
 let MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const CompressionPlugin = require('compression-webpack-plugin');
+
 let conf = {
-    entry: './src/main.js',
+    entry: ["babel-polyfill",'./src/main.js',],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js',
@@ -15,6 +17,7 @@ let conf = {
         new MiniCssExtractPlugin({
             filename: 'styles.css',
         }),
+        
        
     ],
     module: {

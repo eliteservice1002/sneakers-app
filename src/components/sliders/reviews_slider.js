@@ -20,11 +20,9 @@ import Slider from "react-slick";
 
     
     return (
-      <div className="block_inner">
-        
-          
-          
-              <div className="maskImg">
+    <div className="col-12">
+        <div className="block_inner ">
+              <div className="maskImg ">
                 <img src={reviewsPathInStore.srcOfImg} alt=""/>
               </div>
               <div className="content">
@@ -35,9 +33,8 @@ import Slider from "react-slick";
                 <div className="reviewer_name">{reviewsPathInStore.name}</div>
                 <div className="reviewer_surname">{reviewsPathInStore.surName}</div>
               </div>
-          
-        
       </div>
+    </div>
     );
   }
 }

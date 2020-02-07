@@ -1,0 +1,152 @@
+@import "./../../less/vars/var.less";
+
+.check_out{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;   
+    width: 100%;
+    font-family: @mainFont;
+    font-size: 1rem;
+
+    .form_inner{
+        margin-top: 10%;
+        .title{
+            margin-bottom: 60px;
+            font-size: 2rem;
+            font-weight: 300;
+            
+        }
+
+        .inputs_wrapper{
+            display: flex;
+            flex-wrap: wrap;
+
+            
+        }
+        .co_input{
+            
+            border-bottom: 1px solid #E6E6E6;
+            
+            
+            height: 60px;
+            margin-bottom: 25px;
+
+            input{
+            width: 100%;
+            height: 100%;
+            outline: none;
+            border:none;
+            }
+
+            .wrong_input{
+                font-size: 0.75rem;
+                font-weight: 100;
+            }
+        }
+
+        .submit_btn{
+            
+            cursor: pointer;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            width: 30%;
+            max-width: 240px;
+            background:@red;
+            border-radius: 30px;
+            color: #fff;
+            font-weight: 100;
+        }
+    }
+
+    .order-products_list{
+        position: relative;
+        width: 100%;
+        margin-top: 10%;   
+
+        height: 80%;
+
+        .items{
+            height: 100%;
+            overflow: auto;
+            .item{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                margin-top: 40px;
+                &:first-child{
+                    margin-top: 0;
+                }
+            }
+            img{
+                width: 90%;
+                margin-bottom: 30px;
+            }
+
+            .editing{
+                width: 100%;
+                
+                align-items: flex-end;
+                color: #959595;
+                font-size: 0.7rem;
+                font-weight: 100;
+               
+                
+                border-bottom: 3px dot #000;
+
+                .f_row{
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .s_row{
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .title{
+                    display: flex;
+                    flex-direction: column;
+                    line-height: 24px;
+                }
+                .brand{
+                    color: @black;
+                    font-size: 2.5rem;
+                    font-weight: 700;
+                    font-style: italic;
+                }
+                
+            }
+        }
+        .info_inner{
+            width: 70%;
+            color: #959595;
+            position: absolute;
+            top: 0;
+            margin-top: -10%;
+            
+            .title_wrapper{
+                display: flex;
+                
+                
+                color: @black;
+                position: relative;
+                font-size: 1.2rem;
+                font-weight: 300;
+            .edit{
+                margin-left: 2rem;
+                font-size: 0.8rem;
+                
+            }
+            }
+
+            .detailed_info{
+                font-weight: 100;
+                display: flex;
+                flex-direction: column;
+
+                
+            }
+        }
+    }
+}

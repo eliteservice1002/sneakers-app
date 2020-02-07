@@ -8,6 +8,7 @@ import './style.less';
 import Product from '~p/product';
 import ProductsList from '~p/productsList';
 import Cart from '~p/cart';
+import Order from '~p/order';
 
 // other
 
@@ -15,7 +16,7 @@ import Cart from '~p/cart';
 
 
 
-import logo from "./assets/Logo.png";
+import logo from "./assets/Logo.svg";
 import rightNav from "./assets/Menu-Cart.png";
 
 
@@ -32,8 +33,6 @@ import rightNav from "./assets/Menu-Cart.png";
         this.nav = React.createRef();
         
             this.state = {
-                scrollTop: 0,
-                
                 lastScrollTop:0,
             }
         
@@ -55,52 +54,51 @@ import rightNav from "./assets/Menu-Cart.png";
     }
 
     handleScroll = () => {
-        
         let nav = this.nav.current;
         
+
+        // let st = this.state.scrollTop;
+        let st = window.scrollY;
         
 
-        let st = this.state.scrollTop;
-        
-
-        if(st > this.state.lastScrollTop ){
-            
+        if(st > this.state.lastScrollTop && st > 100 ){
             // down
+            
             nav.classList.add("scrollDown")
             nav.classList.remove("scrollUp")
 
-    }else if(st < this.state.lastScrollTop && st !==0){  
-            // up
-            nav.classList.add("scrollUp")
-            nav.classList.remove("scrollDown")
+        }else if(st < this.state.lastScrollTop ){  
+                // up
+                
+                nav.classList.add("scrollUp")
+                nav.classList.remove("scrollDown")
 
-    }
-    
+        }
+
+        if(window.scrollY ==  0){
+            nav.classList.add("scrollUp");
+            nav.classList.remove("scrollDown")
+        }
+
         this.state.lastScrollTop = st;
 
 
-
-        
-        this.setState({
-            scrollTop:window.scrollY
-        });
-
-       
     }
     
 
     render(){
         
-
         let cartStore = this.props.stores.cart;
         
         return(
-       
-        <div className="container products">
+       <>
+        
             <div ref={this.nav} className="common_title_wrapper">
-                <div className="leftside_inner">
-                    <Link to={routesMap.home} className="homeLink"><img src={logo} alt=""/></Link>
-                    <div className="common__title"> FIND YOUR BEST AIR </div>
+                <div className="container">
+                    <div className="leftside_inner">
+                        <Link to={routesMap.home} className="homeLink"><img src={logo} alt=""/></Link>
+                        <div className="common__title"> FIND YOUR BEST AIR </div>
+                    </div>
                 </div>
                 <div className="right_nav col-xl-3 col-lg-4 col-5">
                     <img className="right_nav_bg" src={rightNav} alt=""/>
@@ -122,14 +120,16 @@ import rightNav from "./assets/Menu-Cart.png";
                         
                     </div>
                 </div>
-            </div>
+            
+        </div>
                 <Switch>
                     <Route exact={true} path="/products/list" component={ProductsList}/>
                     <Route exact={true} path="/products/cart" component={Cart}/>
+                    <Route exact={false} path="/products/order" component={Order}/>
                     <Route exact={true} path="/products/:url" component={Product}/>
                 </Switch>
 
-        </div>
+        </>
         );
     }
         

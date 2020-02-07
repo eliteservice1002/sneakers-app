@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.less";
 import "slick-carousel/slick/slick-theme.less";
 
 import {observer, inject} from 'mobx-react';
+import { Link} from 'react-router-dom';
 
 import "./style.less";
 
@@ -25,7 +26,12 @@ import "./style.less";
             <div className="right_slider_bar">
                 <div className="price">${productsPathInStore.price}</div>
                 <div className="some"><i className="far fa-heart"></i></div>
-                <div className="some"><i className="fas fa-shopping-cart"></i></div>
+
+                <div className="some">
+                  <Link to={'products/' + productsPathInStore.id}>
+                    <i className="fas fa-shopping-cart"></i>
+                  </Link>
+                </div>
             </div>
             <div className="main_img">
                 <img className="popular_img " src={productsPathInStore.srcOfImg} alt=""/>

@@ -83,16 +83,28 @@ export default class{
 
     
 
-    @action  typeOfProducts(type){
-
+    @action  filteBy(type){
+        let filteredItems = [];
         if(type !== ""){
-            this.items = getProducts(); 
-            this.items = this.items.filter((pr) =>pr.type == type);
+            filteredItems = getProducts(); 
+            filteredItems = this.items.filter((pr) =>pr.type == type);
         }else{
-            this.items = getProducts();
+            filteredItems = getProducts();
+            console.log("TCL: filteredItems", filteredItems)
+            
         }
 
     }
+    // @action  typeOfProducts(type){
+
+    //     if(type !== ""){
+    //         this.items = getProducts(); 
+    //         this.items = this.items.filter((pr) =>pr.type == type);
+    //     }else{
+    //         this.items = getProducts();
+    //     }
+
+    // }
 
     @observable productState = {
             id:"", 

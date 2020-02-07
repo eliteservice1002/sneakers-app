@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import "./style.less"
+
 export default class extends React.Component{
     static defaultProps = {
         onChange: function(e){},

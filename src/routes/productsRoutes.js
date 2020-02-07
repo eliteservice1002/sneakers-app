@@ -1,16 +1,6 @@
-import Home from '~p/home';
-import Page404 from '~p/error404';
-import Product from '~p/product';
-import Products from '~p/products';
-import Todolist from '~p/todolistmobx/todolist.js';
-import Weather from '~p/weather'
 
-import Test from '~p/todolistmobx/components/childs/test.js';
-import TestInner from '~p/todolistmobx/components/childs/testInner.js';
 
-import ProductsList from '~p/productsList';
 
-// import BlogNews from '~c/cmdFiles/block_of_news.js';
 
 
 let routes = [,
