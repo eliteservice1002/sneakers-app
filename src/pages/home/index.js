@@ -18,11 +18,10 @@ import "./style/news.less";
 import "./style/home_inner.less";
 import "./style/intro.less";
 import "./style/reviews.less";
-import logo from "./imgs/Logo.svg"
 import firstNews from "./imgs/news_1.png";
 import secondNews from "./imgs/news_2.png";
 import thirdNews from "./imgs/news_3.png";
-import rightNav from "./imgs/Menu-Cart.png";
+// import rightNav from "./imgs/Menu-Cart.png";
 
 
 
@@ -35,7 +34,7 @@ import $ from 'jquery'
 @inject('stores') @observer class Home extends React.Component{
     constructor(props) {
         super(props);
-        this.nav = React.createRef();
+        
         
             this.state = {
                 
@@ -45,15 +44,9 @@ import $ from 'jquery'
             this.slider = React.createRef();
       }
 
-      componentDidMount(){
-        window.addEventListener('scroll', this.handleScroll);
-        
-        
-    }
+     
 
-    componentWillUnmount(){
-        window.removeEventListener('scroll', this.handleScroll);
-    }
+    
 
     componentDidUpdate(prevProps) {
         if (
@@ -65,38 +58,7 @@ import $ from 'jquery'
     
     
 
-      handleScroll = () => {
-        let nav = this.nav.current;
-        
-
-        // let st = this.state.scrollTop;
-        let st = window.scrollY;
-        
-
-        if(st > this.state.lastScrollTop && st > 100 ){
-            // down
-            
-            nav.classList.add("scrollDown")
-            nav.classList.remove("scrollUp")
-
-        }else if(st < this.state.lastScrollTop ){  
-                // up
-                
-                nav.classList.add("scrollUp")
-                nav.classList.remove("scrollDown")
-
-        }
-
-        if(window.scrollY ==  0){
-            nav.classList.add("scrollUp");
-            nav.classList.remove("scrollDown")
-        }
-
-        this.state.lastScrollTop = st;
-
-
-    }
-
+     
     changeSlide = (cnt) =>{
         this.slider.current.slider.slickGoTo(cnt); 
         this.setState({
@@ -144,47 +106,7 @@ import $ from 'jquery'
                 {/* intro */}
                 
               
-                <div ref={this.nav}  className="common_title_wrapper" >
-                        <div className="container">
-                            <div className="nav">
-                                
-                                <NavLink   exact to={routesMap.home}><img src={logo} alt=""/></NavLink>
-                                
-
-                                <div className="nav_items" >
-                                    <NavLink  activeClassName="selected" exact to="/products/list">Products</NavLink>
-                                    <NavLink  activeClassName="selected" exact to={`${routesMap.products}/cart`}>cart</NavLink>
-                                    <NavLink  activeClassName="selected" exact to={routesMap.todolist}>toDoList</NavLink>
-                                    <NavLink  activeClassName="selected" exact to={routesMap.hook}>weather</NavLink>
-                                    <a   >Men</a>
-                                    <a >Women</a>
-                                    <a >Kids</a>
-                                </div>
-                            </div>
-                            
-                        </div>
-                       
-                            {/* <div className="right_nav col-xl-3 col-lg-4 col-5">
-                                <img className="right_nav_bg" src={rightNav} alt=""/>
-                                <div className="right_nav_inner">
-                                    <NavLink  activeClassName="selected" className="search_icon" exact to={`${routesMap.products}/cart`}>
-                                        <i className="fas fa-search fa-lg "></i>
-                                    </NavLink>
-                                    <NavLink  activeClassName="selected" className="search_icon" exact to={`${routesMap.products}/cart`}>
-                                        <i className="far fa-user fa-lg "></i>
-                                    </NavLink>
-                                    <NavLink  activeClassName="selected" className="search_icon" exact to={`${routesMap.products}/cart`}>
-                                        <i className="far fa-heart fa-lg "></i>
-                                    </NavLink>
-                                    <NavLink  activeClassName="selected " className="search_icon" exact to={`${routesMap.products}/cart`}>
-                                        <i className="fas fa-shopping-cart fa-lg "></i>
-                                        <div className="cnt_Cart">{cartStore.cartCnt}</div>
-                                    </NavLink>
-                                    
-                                </div>
-                            </div> */}
-                        
-                    </div>
+                
 
 
 

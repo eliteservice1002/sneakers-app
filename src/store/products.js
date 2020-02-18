@@ -1,4 +1,5 @@
 import {observable, computed, action} from 'mobx';
+import axios from "axios"
 
 export default class{
    
@@ -62,10 +63,22 @@ export default class{
     
     
     
-    @observable items = getProducts();
+    @observable items = [];
 
+    @observable fetchedProducts = {
+        isLoading :true, 
+        products:[]
+    };
+    
+    @action  async getProudcts(){
+        let response = await axios.get(" http://localhost:3000/products")
+        this.items = response.data
+        this.fetchedProducts.isLoading = false;
 
+    }
 
+    
+    
 
     @computed get productsMap(){
         let map = {};
@@ -81,30 +94,6 @@ export default class{
         
     }
 
-    
-
-    @action  filteBy(type){
-        let filteredItems = [];
-        if(type !== ""){
-            filteredItems = getProducts(); 
-            filteredItems = this.items.filter((pr) =>pr.type == type);
-        }else{
-            filteredItems = getProducts();
-            console.log("TCL: filteredItems", filteredItems)
-            
-        }
-
-    }
-    // @action  typeOfProducts(type){
-
-    //     if(type !== ""){
-    //         this.items = getProducts(); 
-    //         this.items = this.items.filter((pr) =>pr.type == type);
-    //     }else{
-    //         this.items = getProducts();
-    //     }
-
-    // }
 
     @observable productState = {
             id:"", 
@@ -121,9 +110,7 @@ export default class{
     }
 
     @action selceSize(color,id){
-         
          this.productState.color = color;
-
     }
 
     
@@ -158,7 +145,8 @@ function getProducts(){
                 red:true,
                 blue:true,
                 white:true,
-                dark_blue:false
+                dark_blue:false,
+                whit1e:true,
             },
             availableSize:{
                 "36":false,

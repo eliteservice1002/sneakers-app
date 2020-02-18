@@ -2,22 +2,13 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './less/style.less';
+import {enableLogging} from 'mobx-logger';
 import App from './app';
-
-
-
-
-
-import '@fortawesome/fontawesome-free/js/fontawesome'
-import '@fortawesome/fontawesome-free/js/solid'
-import '@fortawesome/fontawesome-free/js/regular'
-import '@fortawesome/fontawesome-free/js/brands'
-
-
-
 
 import {Provider} from 'mobx-react';
 import stores from '~s';
+
+enableLogging();
 
 ReactDom.render(<Provider stores={stores}>
             <App/>

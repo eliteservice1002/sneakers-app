@@ -23,7 +23,7 @@ let conf = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test:  /\.(js|mjs|jsx|ts|tsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -31,8 +31,10 @@ let conf = {
                         presets: ['@babel/preset-env'],
                         plugins: [
                             "@babel/plugin-transform-react-jsx",
+                            "@babel/plugin-syntax-dynamic-import",
                             ["@babel/plugin-proposal-decorators", { "legacy": true }],
-                            ["@babel/plugin-proposal-class-properties", { "loose": true }]
+                            ["@babel/plugin-proposal-class-properties", { "loose": true }],
+                            
                         ]
                     }
                 }
@@ -85,7 +87,7 @@ let conf = {
             }, 
             
             {
-                test: /\.(png|jpg|gif)$/,
+                test: /\.(png|jpg|gif|svg)$/,
                 use:[
                     {
                         loader: 'file-loader',
@@ -123,7 +125,7 @@ let conf = {
                 
             },
             {
-                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'file-loader',
                 options: {
                   outputPath: 'fonts',

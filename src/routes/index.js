@@ -1,7 +1,11 @@
+import loadable from '@loadable/component'
+
 import Home from '~p/home';
 import Page404 from '~p/error404';
 import Product from '~p/product';
-import Products from '~p/products';
+
+
+import Products from "~p/products";
 import Todolist from '~p/todolistmobx/todolist.js';
 import Weather from '~p/weather'
 

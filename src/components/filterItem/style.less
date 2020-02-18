@@ -1,0 +1,27 @@
+@import "./../../less/vars/var.less";
+.filter_dropdown{
+    position: absolute;
+    z-index: 10;
+    border: 2px solid @red;
+    background: #fff;
+    border-radius: 0 0 10px 10px;
+    display: none !important;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    
+}
+
+.filter_dropdown_item{
+    cursor: pointer;
+    min-width: 100px;
+}
+.filter_dropdown_item_active{
+    pointer-events: none;
+    border-bottom: 2px solid @red;
+    border-top: 2px solid @red;
+}
+
+.filter_dropdown-active{
+    display: flex !important;
+}
